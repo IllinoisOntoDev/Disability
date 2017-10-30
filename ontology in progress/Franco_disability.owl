@@ -1,0 +1,1111 @@
+@prefix : <http://purl.org/lis590OD/Fall17/DisabilityOnt#> .
+@prefix icf: <http://who.int/icf#> .
+@prefix ont: <http://purl.org/lis590OD/Fall17/DisabilityOnt/1.0.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pmr: <http://purl.bioontology.org/ontology/PMR.owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://purl.org/lis590OD/Fall17/DisabilityOnt> .
+
+<http://purl.org/lis590OD/Fall17/DisabilityOnt> rdf:type owl:Ontology ;
+                                                 owl:versionIRI <http://purl.org/lis590OD/Fall17/DisabilityOnt/1.0.0> ;
+                                                 owl:imports <http://who.int/icf> ,
+                                                             <http://purl.bioontology.org/ontology/PMR.owl> ;
+                                                 rdfs:comment "The mission of this ontology is to improve Champaign County’s system of care for persons with disabilities so as to avoid incarceration, reduce recidivism, provide rehabilitation, and promote a humanistic view of disability."@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/source
+<http://purl.org/dc/terms/source> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/additionalType
+<http://schema.org/additionalType> rdf:type owl:AnnotationProperty ;
+                                   <http://schema.org/rangeIncludes> <http://schema.org/URL> ;
+                                   rdfs:comment "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally." ;
+                                   rdfs:label "additionalType" ;
+                                   rdfs:subPropertyOf rdf:type .
+
+
+###  http://schema.org/affiliation
+<http://schema.org/affiliation> rdf:type owl:AnnotationProperty ;
+                                rdfs:comment "An organization that this person is affiliated with. For example, a school/university, a club, or a team." ;
+                                rdfs:label "affiliation" ;
+                                rdfs:subPropertyOf <http://schema.org/memberOf> .
+
+
+###  http://schema.org/category
+<http://schema.org/category> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/description
+<http://schema.org/description> rdf:type owl:AnnotationProperty ;
+                                <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                                rdfs:comment "A description of the item." ;
+                                rdfs:label "description" .
+
+
+###  http://schema.org/disambiguatingDescription
+<http://schema.org/disambiguatingDescription> rdf:type owl:AnnotationProperty ;
+                                              <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                                              rdfs:comment "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation." ;
+                                              rdfs:label "disambiguatingDescription" ;
+                                              rdfs:subPropertyOf <http://schema.org/description> .
+
+
+###  http://schema.org/domainIncludes
+<http://schema.org/domainIncludes> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/duns
+<http://schema.org/duns> rdf:type owl:AnnotationProperty ;
+                         <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                         <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                         rdfs:comment "The Dun &amp; Bradstreet DUNS number for identifying an organization or business person." ;
+                         rdfs:label "duns" ;
+                         rdfs:subPropertyOf <http://schema.org/identifier> .
+
+
+###  http://schema.org/funder
+<http://schema.org/funder> rdf:type owl:AnnotationProperty ;
+                           <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                           rdfs:comment "A person or organization that supports (sponsors) something through some kind of financial contribution." ;
+                           rdfs:label "funder" ;
+                           rdfs:subPropertyOf <http://schema.org/sponsor> .
+
+
+###  http://schema.org/globalLocationNumber
+<http://schema.org/globalLocationNumber> rdf:type owl:AnnotationProperty ;
+                                         <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                                         <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                                         rdfs:comment "The <a href=\"http://www.gs1.org/gln\">Global Location Number</a> (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations." ;
+                                         rdfs:label "globalLocationNumber" ;
+                                         rdfs:subPropertyOf <http://schema.org/identifier> .
+
+
+###  http://schema.org/homeLocation
+<http://schema.org/homeLocation> rdf:type owl:AnnotationProperty ;
+                                 <http://schema.org/rangeIncludes> <http://schema.org/ContactPoint> ;
+                                 rdfs:comment "A contact location for a person's residence." ;
+                                 rdfs:label "homeLocation" ;
+                                 rdfs:subPropertyOf <http://schema.org/location> .
+
+
+###  http://schema.org/identifier
+<http://schema.org/identifier> rdf:type owl:AnnotationProperty ;
+                               <http://schema.org/rangeIncludes> <http://schema.org/PropertyValue> ,
+                                                                 <http://schema.org/Text> ,
+                                                                 <http://schema.org/URL> ;
+                               rdfs:comment "The identifier property represents any kind of identifier for any kind of <a class=\"localLink\" href=\"http://schema.org/Thing\">Thing</a>, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See <a href=\"/docs/datamodel.html#identifierBg\">background notes</a> for more details." ;
+                               rdfs:label "identifier" .
+
+
+###  http://schema.org/inverseOf
+<http://schema.org/inverseOf> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/isPartOf
+<http://schema.org/isPartOf> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/location
+<http://schema.org/location> rdf:type owl:AnnotationProperty ;
+                             <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                             <http://schema.org/rangeIncludes> <http://schema.org/PostalAddress> ,
+                                                               <http://schema.org/Text> ;
+                             rdfs:comment "The location of for example where the event is happening, an organization is located, or where an action takes place." ;
+                             rdfs:label "location" .
+
+
+###  http://schema.org/memberOf
+<http://schema.org/memberOf> rdf:type owl:AnnotationProperty ;
+                             <http://schema.org/inverseOf> <http://schema.org/member> ;
+                             <http://schema.org/rangeIncludes> <http://schema.org/ProgramMembership> ;
+                             rdfs:comment "An Organization (or ProgramMembership) to which this Person or Organization belongs." ;
+                             rdfs:label "memberOf" .
+
+
+###  http://schema.org/rangeIncludes
+<http://schema.org/rangeIncludes> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/sponsor
+<http://schema.org/sponsor> rdf:type owl:AnnotationProperty ;
+                            <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                            rdfs:comment "A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event." ;
+                            rdfs:label "sponsor" .
+
+
+###  http://schema.org/supersededBy
+<http://schema.org/supersededBy> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/taxID
+<http://schema.org/taxID> rdf:type owl:AnnotationProperty ;
+                          <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                          <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                          rdfs:comment "The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain." ;
+                          rdfs:label "taxID" ;
+                          rdfs:subPropertyOf <http://schema.org/identifier> .
+
+
+###  http://schema.org/workFeatured
+<http://schema.org/workFeatured> rdf:type owl:AnnotationProperty ;
+                                 <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                                 rdfs:comment """A work featured in some event, e.g. exhibited in an ExhibitionEvent.
+       Specific subproperties are available for workPerformed (e.g. a play), or a workPresented (a Movie at a ScreeningEvent).""" ;
+                                 rdfs:label "workFeatured" .
+
+
+###  http://schema.org/workLocation
+<http://schema.org/workLocation> rdf:type owl:AnnotationProperty ;
+                                 <http://schema.org/rangeIncludes> <http://schema.org/ContactPoint> ;
+                                 rdfs:comment "A contact location for a person's place of work." ;
+                                 rdfs:label "workLocation" ;
+                                 rdfs:subPropertyOf <http://schema.org/location> .
+
+
+###  http://schema.org/workPerformed
+<http://schema.org/workPerformed> rdf:type owl:AnnotationProperty ;
+                                  <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                                  rdfs:comment "A work performed in some event, for example a play performed in a TheaterEvent." ;
+                                  rdfs:label "workPerformed" ;
+                                  rdfs:subPropertyOf <http://schema.org/workFeatured> .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+rdf:type rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_age
+:has_age rdf:type owl:ObjectProperty ;
+         rdfs:domain :Personal ;
+         rdfs:range :Age .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_gender
+:has_gender rdf:type owl:ObjectProperty ;
+            rdfs:domain :Personal ;
+            rdfs:range :Gender .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#usedFor
+:usedFor rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#uses
+:uses rdf:type owl:ObjectProperty ;
+      rdfs:domain :Personal ;
+      rdfs:range icf:e115 ,
+                 icf:e1151 ,
+                 icf:e1251 ,
+                 icf:e1301 ,
+                 icf:e1351 ,
+                 icf:e1401 ,
+                 icf:e1451 .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://hadatac.org/ont/chear#Father
+<http://hadatac.org/ont/chear#Father> rdf:type owl:Class ;
+                                      rdfs:subClassOf icf:e310 ;
+                                      rdfs:comment "male parent of a child" .
+
+
+###  http://hadatac.org/ont/chear#Sibling
+<http://hadatac.org/ont/chear#Sibling> rdf:type owl:Class ;
+                                       rdfs:subClassOf icf:e310 .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Age
+:Age rdf:type owl:Class ;
+     rdfs:subClassOf :Personal .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Brother
+:Brother rdf:type owl:Class ;
+         rdfs:subClassOf <http://hadatac.org/ont/chear#Sibling> .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Gender
+:Gender rdf:type owl:Class ;
+        rdfs:subClassOf :Personal .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Mother
+:Mother rdf:type owl:Class ;
+        rdfs:subClassOf icf:e310 ;
+        rdfs:comment "female parent of a child" .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Personal
+:Personal rdf:type owl:Class ;
+          rdfs:label "Person" .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Personal_pronouns
+:Personal_pronouns rdf:type owl:Class ;
+                   rdfs:subClassOf :Personal ;
+                   rdfs:label "Personal pronouns" .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Sister
+:Sister rdf:type owl:Class ;
+        rdfs:subClassOf <http://hadatac.org/ont/chear#Sibling> .
+
+
+###  http://schema.org/Event
+<http://schema.org/Event> rdf:type owl:Class ;
+                          rdfs:comment "An event happening at a certain time and location, such as a concert, lecture, or festival. Ticketing information may be added via the <a class=\"localLink\" href=\"http://schema.org/offers\">offers</a> property. Repeated events may be structured as separate Event objects." ;
+                          rdfs:label "Event" .
+
+
+###  http://schema.org/MedicalCondition
+<http://schema.org/MedicalCondition> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://schema.org/Event> ;
+                                     <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                                     rdfs:comment "Any condition of the human body that affects the normal functioning of a person, whether physically or mentally. Includes diseases, injuries, disabilities, disorders, syndromes, etc." ;
+                                     rdfs:label "Medical Condition" .
+
+
+###  http://schema.org/MedicalSignOrSymptom
+<http://schema.org/MedicalSignOrSymptom> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://schema.org/MedicalCondition> .
+
+
+###  http://who.int/icf#e1251
+icf:e1251 rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#cane
+:cane rdf:type owl:NamedIndividual ,
+               icf:e1201 .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#crutches
+:crutches rdf:type owl:NamedIndividual ,
+                   icf:e1201 .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#guide_dog
+:guide_dog rdf:type owl:NamedIndividual ,
+                    icf:e1201 .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#sign_language
+:sign_language rdf:type owl:NamedIndividual ,
+                        icf:e1251 .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#teletypewriter
+:teletypewriter rdf:type owl:NamedIndividual ,
+                         icf:e1251 .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#video_relay_service
+:video_relay_service rdf:type owl:NamedIndividual ,
+                              icf:e1251 .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#voice_prosthesis
+:voice_prosthesis rdf:type owl:NamedIndividual ,
+                           icf:e1251 .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#wheelchair
+:wheelchair rdf:type owl:NamedIndividual ,
+                     icf:e1201 .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+pmr:Process rdfs:label "Rehabilitation" .
+
+
+pmr:Substance rdfs:label "Medication" .
+
+
+<http://schema.org/about> rdfs:comment "The subject matter of the content." ;
+                          rdfs:label "about" ;
+                          <http://purl.org/dc/terms/source> <https://github.com/schemaorg/schemaorg/issues/1670> ;
+                          <http://schema.org/category> "issue-1670" ;
+                          <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                          <http://schema.org/isPartOf> <http://pending.schema.org> ;
+                          <http://schema.org/inverseOf> <http://schema.org/subjectOf> ;
+                          <http://schema.org/domainIncludes> <http://schema.org/CommunicateAction> .
+
+
+<http://schema.org/actor> <http://schema.org/domainIncludes> <http://schema.org/TVSeries> ,
+                                                             <http://schema.org/CreativeWorkSeason> ,
+                                                             <http://schema.org/Movie> ,
+                                                             <http://schema.org/VideoGameSeries> ;
+                          rdfs:comment "An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip." ;
+                          <http://schema.org/domainIncludes> <http://schema.org/Clip> ,
+                                                             <http://schema.org/Event> ,
+                                                             <http://schema.org/RadioSeries> ,
+                                                             <http://schema.org/Episode> ,
+                                                             <http://schema.org/VideoGame> ,
+                                                             <http://schema.org/MovieSeries> ,
+                                                             <http://schema.org/VideoObject> ;
+                          rdfs:label "actor" .
+
+
+<http://schema.org/additionalName> rdfs:comment "An additional name for a Person, can be used for a middle name." ;
+                                   rdfs:label "additionalName" ;
+                                   <http://schema.org/rangeIncludes> <http://schema.org/Text> .
+
+
+<http://schema.org/address> <http://schema.org/rangeIncludes> <http://schema.org/Text> ,
+                                                              <http://schema.org/PostalAddress> ;
+                            <http://schema.org/domainIncludes> <http://schema.org/GeoShape> ;
+                            rdfs:label "address" ;
+                            rdfs:comment "Physical address of the item." ;
+                            <http://schema.org/domainIncludes> <http://schema.org/GeoCoordinates> .
+
+
+<http://schema.org/aggregateRating> <http://schema.org/domainIncludes> <http://schema.org/Brand> ;
+                                    rdfs:comment "The overall rating, based on a collection of reviews or ratings, of the item." ;
+                                    <http://schema.org/domainIncludes> <http://schema.org/Service> ,
+                                                                       <http://schema.org/Event> ;
+                                    rdfs:label "aggregateRating" ;
+                                    <http://schema.org/rangeIncludes> <http://schema.org/AggregateRating> ;
+                                    <http://schema.org/domainIncludes> <http://schema.org/Offer> .
+
+
+<http://schema.org/alternateName> rdfs:comment "An alias for the item." ;
+                                  <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                                  rdfs:label "alternateName" .
+
+
+<http://schema.org/alumniOf> <http://schema.org/rangeIncludes> <http://schema.org/EducationalOrganization> ;
+                             rdfs:comment "An organization that the person is an alumni of." ;
+                             rdfs:label "alumniOf" ;
+                             <http://schema.org/inverseOf> <http://schema.org/alumni> .
+
+
+<http://schema.org/associatedAnatomy> rdfs:label "associatedAnatomy" ;
+                                      <http://schema.org/domainIncludes> <http://schema.org/PhysicalActivity> ;
+                                      rdfs:comment "The anatomy of the underlying organ system or structures associated with this entity." ;
+                                      <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                                      <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> .
+
+
+<http://schema.org/attendee> <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                             rdfs:comment "A person or organization attending the event." ;
+                             rdfs:label "attendee" .
+
+
+<http://schema.org/attendees> <http://schema.org/supersededBy> <http://schema.org/attendee> ;
+                              <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                              rdfs:comment "A person attending the event." ;
+                              rdfs:label "attendees" .
+
+
+<http://schema.org/audience> rdfs:label "audience" ;
+                             <http://schema.org/rangeIncludes> <http://schema.org/Audience> ;
+                             <http://schema.org/domainIncludes> <http://schema.org/Service> ,
+                                                                <http://schema.org/PlayAction> ;
+                             rdfs:comment "An intended audience, i.e. a group for whom something was created." ;
+                             <http://schema.org/domainIncludes> <http://schema.org/Event> ,
+                                                                <http://schema.org/LodgingBusiness> .
+
+
+<http://schema.org/award> <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                          <http://schema.org/domainIncludes> <http://schema.org/Service> ;
+                          rdfs:label "award" ;
+                          rdfs:comment "An award won by or for this item." .
+
+
+<http://schema.org/awards> <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                           rdfs:comment "Awards won by or for this item." ;
+                           <http://schema.org/supersededBy> <http://schema.org/award> ;
+                           rdfs:label "awards" .
+
+
+<http://schema.org/birthDate> <http://schema.org/rangeIncludes> <http://schema.org/Date> ;
+                              rdfs:comment "Date of birth." ;
+                              rdfs:label "birthDate" .
+
+
+<http://schema.org/birthPlace> rdfs:label "birthPlace" ;
+                               rdfs:comment "The place where the person was born." .
+
+
+<http://schema.org/brand> rdfs:comment "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person." ;
+                          rdfs:label "brand" ;
+                          <http://schema.org/domainIncludes> <http://schema.org/Service> ;
+                          <http://schema.org/rangeIncludes> <http://schema.org/Brand> .
+
+
+<http://schema.org/broadcastOfEvent> <http://schema.org/rangeIncludes> <http://schema.org/Event> .
+
+
+<http://schema.org/cause> rdfs:label "cause" ;
+                          <http://schema.org/domainIncludes> <http://schema.org/MedicalSignOrSymptom> ,
+                                                             <http://schema.org/MedicalCondition> ;
+                          <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                          rdfs:comment "Specifying a cause of something in general. e.g in medicine , one of the causative agent(s) that are most directly responsible for the pathophysiologic process that eventually results in the occurrence." .
+
+
+<http://schema.org/children> rdfs:comment "A child of the person." ;
+                             rdfs:label "children" .
+
+
+<http://schema.org/code> <http://schema.org/rangeIncludes> <http://schema.org/MedicalCode> ;
+                         rdfs:comment "A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc." ;
+                         rdfs:label "code" ;
+                         <http://schema.org/isPartOf> <http://health-lifesci.schema.org> .
+
+
+<http://schema.org/colleague> rdfs:label "colleague" ;
+                              rdfs:comment "A colleague of the person." ;
+                              <http://schema.org/rangeIncludes> <http://schema.org/URL> .
+
+
+<http://schema.org/colleagues> rdfs:comment "A colleague of the person." ;
+                               rdfs:label "colleagues" ;
+                               <http://schema.org/supersededBy> <http://schema.org/colleague> .
+
+
+<http://schema.org/composer> <http://schema.org/domainIncludes> <http://schema.org/Event> ,
+                                                                <http://schema.org/MusicComposition> ;
+                             rdfs:comment "The person or organization who wrote a composition, or who is the composer of a work performed at some event." ;
+                             <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+                             rdfs:label "composer" .
+
+
+<http://schema.org/contactPoint> rdfs:comment "A contact point for a person or organization." ;
+                                 <http://schema.org/domainIncludes> <http://schema.org/HealthInsurancePlan> ;
+                                 rdfs:label "contactPoint" ;
+                                 <http://schema.org/rangeIncludes> <http://schema.org/ContactPoint> .
+
+
+<http://schema.org/contactPoints> <http://schema.org/rangeIncludes> <http://schema.org/ContactPoint> ;
+                                  <http://schema.org/supersededBy> <http://schema.org/contactPoint> ;
+                                  rdfs:label "contactPoints" ;
+                                  rdfs:comment "A contact point for a person or organization." .
+
+
+<http://schema.org/contributor> rdfs:label "contributor" ;
+                                rdfs:comment "A secondary contributor to the CreativeWork or Event." ;
+                                <http://schema.org/domainIncludes> <http://schema.org/Event> .
+
+
+<http://schema.org/deathDate> <http://schema.org/rangeIncludes> <http://schema.org/Date> ;
+                              rdfs:comment "Date of death." ;
+                              rdfs:label "deathDate" .
+
+
+<http://schema.org/deathPlace> rdfs:comment "The place where the person died." ;
+                               rdfs:label "deathPlace" .
+
+
+<http://schema.org/diagnosis> <http://schema.org/rangeIncludes> <http://schema.org/MedicalCondition> .
+
+
+<http://schema.org/differentialDiagnosis> <http://schema.org/rangeIncludes> <http://schema.org/DDxElement> ;
+                                          <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
+                                          <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                                          rdfs:comment "One of a set of differential diagnoses for the condition. Specifically, a closely-related or competing diagnosis typically considered later in the cognitive process whereby this medical condition is distinguished from others most likely responsible for a similar collection of signs and symptoms to reach the most parsimonious diagnosis or diagnoses in a patient." ;
+                                          rdfs:label "differentialDiagnosis" .
+
+
+<http://schema.org/director> <http://schema.org/domainIncludes> <http://schema.org/Event> ,
+                                                                <http://schema.org/TVSeries> ;
+                             rdfs:comment "A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip." ;
+                             <http://schema.org/domainIncludes> <http://schema.org/RadioSeries> ,
+                                                                <http://schema.org/Clip> ,
+                                                                <http://schema.org/VideoGameSeries> ,
+                                                                <http://schema.org/CreativeWorkSeason> ,
+                                                                <http://schema.org/VideoObject> ,
+                                                                <http://schema.org/VideoGame> ,
+                                                                <http://schema.org/MovieSeries> ;
+                             rdfs:label "director" ;
+                             <http://schema.org/domainIncludes> <http://schema.org/Movie> ,
+                                                                <http://schema.org/Episode> .
+
+
+<http://schema.org/doorTime> rdfs:comment "The time admission will commence." ;
+                             <http://schema.org/rangeIncludes> <http://schema.org/DateTime> ;
+                             <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                             rdfs:label "doorTime" .
+
+
+<http://schema.org/drug> <http://schema.org/domainIncludes> <http://schema.org/TherapeuticProcedure> ;
+                         rdfs:label "drug" ;
+                         <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                         <http://schema.org/rangeIncludes> <http://schema.org/Drug> ;
+                         rdfs:comment "Specifying a drug or medicine used in a medication procedure" ;
+                         <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ,
+                                                            <http://schema.org/DrugClass> .
+
+
+<http://schema.org/duration> <http://schema.org/domainIncludes> <http://schema.org/Movie> ,
+                                                                <http://schema.org/Event> ;
+                             <http://purl.org/dc/terms/source> <https://github.com/schemaorg/schemaorg/issues/1698> ;
+                             <http://schema.org/domainIncludes> <http://schema.org/MusicRelease> ,
+                                                                <http://schema.org/MediaObject> ;
+                             rdfs:comment "The duration of the item (movie, audio recording, event, etc.) in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>." ;
+                             <http://schema.org/rangeIncludes> <http://schema.org/Duration> ;
+                             <http://schema.org/domainIncludes> <http://schema.org/QuantitativeValueDistribution> ;
+                             <http://schema.org/category> "issue-1698" ;
+                             <http://schema.org/domainIncludes> <http://schema.org/MusicRecording> ,
+                                                                <http://schema.org/Audiobook> ;
+                             <http://schema.org/isPartOf> <http://pending.schema.org> ;
+                             rdfs:label "duration" .
+
+
+<http://schema.org/email> <http://schema.org/domainIncludes> <http://schema.org/ContactPoint> ;
+                          rdfs:comment "Email address." ;
+                          <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                          rdfs:label "email" .
+
+
+<http://schema.org/endDate> <http://schema.org/domainIncludes> <http://schema.org/Role> ,
+                                                               <http://schema.org/CreativeWorkSeason> ;
+                            <http://schema.org/rangeIncludes> <http://schema.org/Date> ;
+                            rdfs:comment "The end date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)." ;
+                            <http://schema.org/domainIncludes> <http://schema.org/DatedMoneySpecification> ;
+                            <http://schema.org/rangeIncludes> <http://schema.org/DateTime> ;
+                            <http://schema.org/domainIncludes> <http://schema.org/Event> ,
+                                                               <http://schema.org/CreativeWorkSeries> ;
+                            rdfs:label "endDate" .
+
+
+<http://schema.org/epidemiology> <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
+                                 rdfs:label "epidemiology" ;
+                                 <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                                 <http://schema.org/domainIncludes> <http://schema.org/PhysicalActivity> ;
+                                 rdfs:comment "The characteristics of associated patients, such as age, gender, race etc." ;
+                                 <http://schema.org/isPartOf> <http://health-lifesci.schema.org> .
+
+
+<http://schema.org/event> <http://schema.org/rangeIncludes> <http://schema.org/Event> .
+
+
+<http://schema.org/eventStatus> rdfs:label "eventStatus" ;
+                                <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                                <http://schema.org/rangeIncludes> <http://schema.org/EventStatusType> ;
+                                rdfs:comment "An eventStatus of an event represents its status; particularly useful when an event is cancelled or rescheduled." .
+
+
+<http://schema.org/events> <http://schema.org/rangeIncludes> <http://schema.org/Event> .
+
+
+<http://schema.org/expectedPrognosis> rdfs:label "expectedPrognosis" ;
+                                      <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
+                                      <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                                      <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                                      rdfs:comment "The likely outcome in either the short term or long term of the medical condition." .
+
+
+<http://schema.org/familyName> rdfs:label "familyName" ;
+                               <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                               rdfs:comment "Family name. In the U.S., the last name of an Person. This can be used along with givenName instead of the name property." .
+
+
+<http://schema.org/faxNumber> <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                              rdfs:label "faxNumber" ;
+                              <http://schema.org/domainIncludes> <http://schema.org/ContactPoint> ;
+                              rdfs:comment "The fax number." .
+
+
+<http://schema.org/firstPerformance> <http://schema.org/rangeIncludes> <http://schema.org/Event> .
+
+
+<http://schema.org/follows> rdfs:label "follows" ;
+                            rdfs:comment "The most generic uni-directional social relation." .
+
+
+<http://schema.org/gender> <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                           rdfs:label "gender" ;
+                           rdfs:comment "Gender of the person. While http://schema.org/Male and http://schema.org/Female may be used, text strings are also acceptable for people who do not identify as a binary gender." ;
+                           <http://schema.org/rangeIncludes> <http://schema.org/GenderType> .
+
+
+<http://schema.org/givenName> rdfs:comment "Given name. In the U.S., the first name of a Person. This can be used along with familyName instead of the name property." ;
+                              rdfs:label "givenName" ;
+                              <http://schema.org/rangeIncludes> <http://schema.org/Text> .
+
+
+<http://schema.org/guideline> rdfs:label "guideline" ;
+                              <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                              rdfs:comment "A medical guideline related to this entity." .
+
+
+<http://schema.org/hasOccupation> <http://schema.org/rangeIncludes> <http://schema.org/Occupation> ;
+                                  rdfs:label "hasOccupation" ;
+                                  <http://schema.org/category> "issue-1698" ;
+                                  rdfs:comment "The Person's occupation. For past professions, use Role for expressing dates." ;
+                                  <http://schema.org/isPartOf> <http://pending.schema.org> ;
+                                  <http://purl.org/dc/terms/source> <https://github.com/schemaorg/schemaorg/issues/1698> .
+
+
+<http://schema.org/hasOfferCatalog> <http://schema.org/domainIncludes> <http://schema.org/Service> ;
+                                    rdfs:comment "Indicates an OfferCatalog listing for this Organization, Person, or Service." ;
+                                    <http://schema.org/rangeIncludes> <http://schema.org/OfferCatalog> ;
+                                    rdfs:label "hasOfferCatalog" .
+
+
+<http://schema.org/hasPOS> <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                           rdfs:label "hasPOS" ;
+                           rdfs:comment "Points-of-Sales operated by the organization or person." .
+
+
+<http://schema.org/healthCondition> <http://schema.org/rangeIncludes> <http://schema.org/MedicalCondition> .
+
+
+<http://schema.org/height> <http://schema.org/domainIncludes> <http://schema.org/MediaObject> ,
+                                                              <http://schema.org/VisualArtwork> ;
+                           <http://schema.org/rangeIncludes> <http://schema.org/Distance> ;
+                           rdfs:label "height" ;
+                           <http://schema.org/rangeIncludes> <http://schema.org/QuantitativeValue> ;
+                           rdfs:comment "The height of the item." .
+
+
+<http://schema.org/honorificPrefix> rdfs:comment "An honorific prefix preceding a Person's name such as Dr/Mrs/Mr." ;
+                                    rdfs:label "honorificPrefix" ;
+                                    <http://schema.org/rangeIncludes> <http://schema.org/Text> .
+
+
+<http://schema.org/honorificSuffix> rdfs:label "honorificSuffix" ;
+                                    <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                                    rdfs:comment "An honorific suffix preceding a Person's name such as M.D. /PhD/MSCSW." .
+
+
+<http://schema.org/image> rdfs:comment "An image of the item. This can be a <a class=\"localLink\" href=\"http://schema.org/URL\">URL</a> or a fully described <a class=\"localLink\" href=\"http://schema.org/ImageObject\">ImageObject</a>." ;
+                          rdfs:label "image" ;
+                          <http://schema.org/rangeIncludes> <http://schema.org/URL> ,
+                                                            <http://schema.org/ImageObject> .
+
+
+<http://schema.org/inLanguage> <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                               <http://schema.org/domainIncludes> <http://schema.org/LinkRole> ;
+                               rdfs:label "inLanguage" ;
+                               <http://schema.org/domainIncludes> <http://schema.org/Event> ,
+                                                                  <http://schema.org/WriteAction> ;
+                               <http://schema.org/rangeIncludes> <http://schema.org/Language> ;
+                               rdfs:comment "The language of the content or performance or used in an action. Please use one of the language codes from the <a href=\"http://tools.ietf.org/html/bcp47\">IETF BCP 47 standard</a>. See also <a class=\"localLink\" href=\"http://schema.org/availableLanguage\">availableLanguage</a>." ;
+                               <http://schema.org/domainIncludes> <http://schema.org/CommunicateAction> .
+
+
+<http://schema.org/isAccessibleForFree> rdfs:comment "A flag to signal that the item, event, or place is accessible for free." ;
+                                        <http://schema.org/rangeIncludes> <http://schema.org/Boolean> ;
+                                        <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                                        rdfs:label "isAccessibleForFree" .
+
+
+<http://schema.org/isicV4> rdfs:label "isicV4" ;
+                           <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                           rdfs:comment "The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place." ;
+                           <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> .
+
+
+<http://schema.org/jobTitle> rdfs:comment "The job title of the person (for example, Financial Manager)." ;
+                             <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                             rdfs:label "jobTitle" .
+
+
+<http://schema.org/knows> rdfs:comment "The most generic bi-directional social/work relation." ;
+                          rdfs:label "knows" .
+
+
+<http://schema.org/legalStatus> <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                                rdfs:label "legalStatus" ;
+                                <http://schema.org/domainIncludes> <http://schema.org/Drug> ,
+                                                                   <http://schema.org/DietarySupplement> ;
+                                rdfs:comment "The drug or supplement's legal status, including any controlled substance schedules that apply." ;
+                                <http://schema.org/rangeIncludes> <http://schema.org/MedicalEnumeration> ,
+                                                                  <http://schema.org/Text> ,
+                                                                  <http://schema.org/DrugLegalStatus> .
+
+
+<http://schema.org/mainEntityOfPage> <http://schema.org/rangeIncludes> <http://schema.org/URL> ;
+                                     rdfs:comment "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details." ;
+                                     <http://schema.org/inverseOf> <http://schema.org/mainEntity> ;
+                                     rdfs:label "mainEntityOfPage" .
+
+
+<http://schema.org/makesOffer> <http://schema.org/inverseOf> <http://schema.org/offeredBy> ;
+                               rdfs:comment "A pointer to products or services offered by the organization or person." ;
+                               <http://schema.org/rangeIncludes> <http://schema.org/Offer> ;
+                               rdfs:label "makesOffer" ;
+                               <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> .
+
+
+<http://schema.org/maximumAttendeeCapacity> rdfs:comment "The total number of individuals that may attend an event or venue." ;
+                                            <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                                            rdfs:label "maximumAttendeeCapacity" ;
+                                            <http://schema.org/rangeIncludes> <http://schema.org/Integer> .
+
+
+<http://schema.org/medicineSystem> <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                                   rdfs:comment "The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc." ;
+                                   rdfs:label "medicineSystem" ;
+                                   <http://schema.org/rangeIncludes> <http://schema.org/MedicineSystem> .
+
+
+<http://schema.org/naics> <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                          rdfs:label "naics" ;
+                          rdfs:comment "The North American Industry Classification System (NAICS) code for a particular organization or business person." ;
+                          <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> .
+
+
+<http://schema.org/name> <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                         rdfs:label "name" ;
+                         rdfs:comment "The name of the item." .
+
+
+<http://schema.org/nationality> rdfs:label "nationality" ;
+                                rdfs:comment "Nationality of the person." ;
+                                <http://schema.org/rangeIncludes> <http://schema.org/Country> .
+
+
+<http://schema.org/naturalProgression> rdfs:label "naturalProgression" ;
+                                       rdfs:comment "The expected progression of the condition if it is not treated and allowed to progress naturally." ;
+                                       <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
+                                       <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                                       <http://schema.org/isPartOf> <http://health-lifesci.schema.org> .
+
+
+<http://schema.org/netWorth> <http://schema.org/rangeIncludes> <http://schema.org/MonetaryAmount> ,
+                                                               <http://schema.org/PriceSpecification> ;
+                             rdfs:comment "The total financial value of the person as calculated by subtracting assets from liabilities." ;
+                             rdfs:label "netWorth" .
+
+
+<http://schema.org/offers> <http://schema.org/domainIncludes> <http://schema.org/AggregateOffer> ,
+                                                              <http://schema.org/Event> ;
+                           <http://schema.org/rangeIncludes> <http://schema.org/Offer> ;
+                           rdfs:label "offers" ;
+                           <http://schema.org/domainIncludes> <http://schema.org/MenuItem> ,
+                                                              <http://schema.org/Service> ;
+                           rdfs:comment "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event." .
+
+
+<http://schema.org/organizer> rdfs:label "organizer" ;
+                              <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                              rdfs:comment "An organizer of an Event." .
+
+
+<http://schema.org/owns> rdfs:comment "Products owned by the organization or person." ;
+                         <http://schema.org/rangeIncludes> <http://schema.org/OwnershipInfo> ;
+                         rdfs:label "owns" ;
+                         <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> .
+
+
+<http://schema.org/parent> rdfs:comment "A parent of this person." ;
+                           rdfs:label "parent" .
+
+
+<http://schema.org/parents> rdfs:comment "A parents of the person." ;
+                            <http://schema.org/supersededBy> <http://schema.org/parent> ;
+                            rdfs:label "parents" .
+
+
+<http://schema.org/pathophysiology> rdfs:label "pathophysiology" ;
+                                    rdfs:comment "Changes in the normal mechanical, physical, and biochemical functions that are associated with this activity or condition." ;
+                                    <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                                    <http://schema.org/domainIncludes> <http://schema.org/PhysicalActivity> ;
+                                    <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                                    <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> .
+
+
+<http://schema.org/performer> <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                              rdfs:label "performer" ;
+                              rdfs:comment "A performer at the event&#x2014;for example, a presenter, musician, musical group or actor." .
+
+
+<http://schema.org/performerIn> rdfs:label "performerIn" ;
+                                <http://schema.org/rangeIncludes> <http://schema.org/Event> ;
+                                rdfs:comment "Event that this person is a performer or participant in." .
+
+
+<http://schema.org/performers> <http://schema.org/supersededBy> <http://schema.org/performer> ;
+                               <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                               rdfs:comment "The main performer or performers of the event&#x2014;for example, a presenter, musician, or actor." ;
+                               rdfs:label "performers" .
+
+
+<http://schema.org/possibleComplication> rdfs:comment "A possible unexpected and unfavorable evolution of a medical condition. Complications may include worsening of the signs or symptoms of the disease, extension of the condition to other organ systems, etc." ;
+                                         rdfs:label "possibleComplication" ;
+                                         <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                                         <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                                         <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> .
+
+
+<http://schema.org/possibleTreatment> <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                                      <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
+                                      <http://schema.org/rangeIncludes> <http://schema.org/MedicalTherapy> ;
+                                      <http://schema.org/domainIncludes> <http://schema.org/MedicalSignOrSymptom> ;
+                                      rdfs:comment "A possible treatment to address this condition, sign or symptom." ;
+                                      rdfs:label "possibleTreatment" .
+
+
+<http://schema.org/potentialAction> rdfs:comment "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role." ;
+                                    rdfs:label "potentialAction" .
+
+
+<http://schema.org/previousStartDate> <http://schema.org/rangeIncludes> <http://schema.org/Date> ;
+                                      rdfs:comment "Used in conjunction with eventStatus for rescheduled or cancelled events. This property contains the previously scheduled start date. For rescheduled events, the startDate property should be used for the newly scheduled start date. In the (rare) case of an event that has been postponed and rescheduled multiple times, this field may be repeated." ;
+                                      <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                                      rdfs:label "previousStartDate" .
+
+
+<http://schema.org/primaryPrevention> rdfs:comment "A preventative therapy used to prevent an initial occurrence of the medical condition, such as vaccination." ;
+                                      rdfs:label "primaryPrevention" ;
+                                      <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
+                                      <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                                      <http://schema.org/rangeIncludes> <http://schema.org/MedicalTherapy> .
+
+
+<http://schema.org/publishingPrinciples> rdfs:label "publishingPrinciples" ;
+                                         <http://schema.org/rangeIncludes> <http://schema.org/URL> ;
+                                         rdfs:comment """The publishingPrinciples property indicates (typically via <a class=\"localLink\" href=\"http://schema.org/URL\">URL</a>) a document describing the editorial principles of an <a class=\"localLink\" href=\"http://schema.org/Organization\">Organization</a> (or individual e.g. a <a class=\"localLink\" href=\"http://schema.org/Person\">Person</a> writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a <a class=\"localLink\" href=\"http://schema.org/CreativeWork\">CreativeWork</a> (e.g. <a class=\"localLink\" href=\"http://schema.org/NewsArticle\">NewsArticle</a>) the principles are those of the party primarily responsible for the creation of the <a class=\"localLink\" href=\"http://schema.org/CreativeWork\">CreativeWork</a>.</p>
+
+<p>While such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a <a class=\"localLink\" href=\"http://schema.org/funder\">funder</a>) can be expressed using schema.org terminology.""" .
+
+
+<http://schema.org/recognizingAuthority> <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                                         rdfs:comment "If applicable, the organization that officially recognizes this entity as part of its endorsed system of medicine." ;
+                                         rdfs:label "recognizingAuthority" .
+
+
+<http://schema.org/recordedAt> <http://schema.org/rangeIncludes> <http://schema.org/Event> .
+
+
+<http://schema.org/recordedIn> rdfs:label "recordedIn" ;
+                               <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                               rdfs:comment "The CreativeWork that captured all or part of this Event." ;
+                               <http://schema.org/inverseOf> <http://schema.org/recordedAt> .
+
+
+<http://schema.org/relatedCondition> <http://schema.org/rangeIncludes> <http://schema.org/MedicalCondition> .
+
+
+<http://schema.org/relatedTo> rdfs:comment "The most generic familial relation." ;
+                              rdfs:label "relatedTo" .
+
+
+<http://schema.org/relevantSpecialty> rdfs:comment "If applicable, a medical specialty in which this entity is relevant." ;
+                                      rdfs:label "relevantSpecialty" ;
+                                      <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                                      <http://schema.org/rangeIncludes> <http://schema.org/MedicalSpecialty> .
+
+
+<http://schema.org/remainingAttendeeCapacity> rdfs:label "remainingAttendeeCapacity" ;
+                                              rdfs:comment "The number of attendee places for an event that remain unallocated." ;
+                                              <http://schema.org/rangeIncludes> <http://schema.org/Integer> ;
+                                              <http://schema.org/domainIncludes> <http://schema.org/Event> .
+
+
+<http://schema.org/review> <http://schema.org/rangeIncludes> <http://schema.org/Review> ;
+                           rdfs:comment "A review of the item." ;
+                           <http://schema.org/domainIncludes> <http://schema.org/Service> ,
+                                                              <http://schema.org/Brand> ;
+                           rdfs:label "review" ;
+                           <http://schema.org/domainIncludes> <http://schema.org/Event> ,
+                                                              <http://schema.org/Offer> .
+
+
+<http://schema.org/riskFactor> <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                               <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
+                               rdfs:label "riskFactor" ;
+                               rdfs:comment "A modifiable or non-modifiable factor that increases the risk of a patient contracting this condition, e.g. age,  coexisting condition." .
+
+
+<http://schema.org/sameAs> rdfs:comment "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website." ;
+                           rdfs:label "sameAs" ;
+                           <http://schema.org/rangeIncludes> <http://schema.org/URL> .
+
+
+<http://schema.org/secondaryPrevention> rdfs:comment "A preventative therapy used to prevent reoccurrence of the medical condition after an initial episode of the condition." ;
+                                        <http://schema.org/rangeIncludes> <http://schema.org/MedicalTherapy> ;
+                                        <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                                        <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
+                                        rdfs:label "secondaryPrevention" .
+
+
+<http://schema.org/seeks> <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                          rdfs:comment "A pointer to products or services sought by the organization or person (demand)." ;
+                          rdfs:label "seeks" ;
+                          <http://schema.org/rangeIncludes> <http://schema.org/Demand> .
+
+
+<http://schema.org/sibling> rdfs:label "sibling" ;
+                            rdfs:comment "A sibling of the person." .
+
+
+<http://schema.org/siblings> <http://schema.org/supersededBy> <http://schema.org/sibling> ;
+                             rdfs:label "siblings" ;
+                             rdfs:comment "A sibling of the person." .
+
+
+<http://schema.org/signOrSymptom> rdfs:label "signOrSymptom" ;
+                                  <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
+                                  <http://schema.org/rangeIncludes> <http://schema.org/MedicalSignOrSymptom> ;
+                                  rdfs:comment "A sign or symptom of this condition. Signs are objective or physically observable manifestations of the medical condition while symptoms are the subjective experience of the medical condition." ;
+                                  <http://schema.org/isPartOf> <http://health-lifesci.schema.org> .
+
+
+<http://schema.org/spouse> rdfs:label "spouse" ;
+                           rdfs:comment "The person's spouse." .
+
+
+<http://schema.org/stage> <http://schema.org/rangeIncludes> <http://schema.org/MedicalConditionStage> ;
+                          rdfs:label "stage" ;
+                          <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
+                          <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                          rdfs:comment "The stage of the condition, if applicable." .
+
+
+<http://schema.org/startDate> <http://schema.org/domainIncludes> <http://schema.org/DatedMoneySpecification> ,
+                                                                 <http://schema.org/Event> ;
+                              <http://schema.org/rangeIncludes> <http://schema.org/Date> ;
+                              <http://schema.org/domainIncludes> <http://schema.org/Role> ;
+                              rdfs:comment "The start date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)." ;
+                              <http://schema.org/domainIncludes> <http://schema.org/CreativeWorkSeries> ;
+                              rdfs:label "startDate" ;
+                              <http://schema.org/domainIncludes> <http://schema.org/CreativeWorkSeason> ;
+                              <http://schema.org/rangeIncludes> <http://schema.org/DateTime> .
+
+
+<http://schema.org/status> rdfs:label "status" ;
+                           <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                           rdfs:comment "The status of the study (enumerated)." ;
+                           <http://schema.org/rangeIncludes> <http://schema.org/MedicalStudyStatus> ;
+                           <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
+                           <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                           <http://schema.org/rangeIncludes> <http://schema.org/EventStatusType> .
+
+
+<http://schema.org/study> rdfs:label "study" ;
+                          rdfs:comment "A medical study or trial related to this entity." ;
+                          <http://schema.org/isPartOf> <http://health-lifesci.schema.org> .
+
+
+<http://schema.org/subEvent> rdfs:comment "An Event that is part of this event. For example, a conference event includes many presentations, each of which is a subEvent of the conference." ;
+                             rdfs:label "subEvent" ;
+                             <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                             <http://schema.org/inverseOf> <http://schema.org/superEvent> ;
+                             <http://schema.org/rangeIncludes> <http://schema.org/Event> .
+
+
+<http://schema.org/subEvents> rdfs:label "subEvents" ;
+                              <http://schema.org/supersededBy> <http://schema.org/subEvent> ;
+                              <http://schema.org/rangeIncludes> <http://schema.org/Event> ;
+                              rdfs:comment "Events that are a part of this event. For example, a conference event includes many presentations, each subEvents of the conference." ;
+                              <http://schema.org/domainIncludes> <http://schema.org/Event> .
+
+
+<http://schema.org/subjectOf> <http://schema.org/rangeIncludes> <http://schema.org/Event> ;
+                              rdfs:label "subjectOf" ;
+                              <http://schema.org/category> "issue-1670" ;
+                              <http://schema.org/isPartOf> <http://pending.schema.org> ;
+                              <http://purl.org/dc/terms/source> <https://github.com/schemaorg/schemaorg/issues/1670> ;
+                              <http://schema.org/inverseOf> <http://schema.org/about> ;
+                              rdfs:comment "A CreativeWork or Event about this Thing.." .
+
+
+<http://schema.org/subtype> rdfs:comment "A more specific type of the condition, where applicable, for example 'Type 1 Diabetes', 'Type 2 Diabetes', or 'Gestational Diabetes' for Diabetes." ;
+                            rdfs:label "subtype" ;
+                            <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
+                            <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                            <http://schema.org/isPartOf> <http://health-lifesci.schema.org> .
+
+
+<http://schema.org/superEvent> rdfs:label "superEvent" ;
+                               <http://schema.org/inverseOf> <http://schema.org/subEvent> ;
+                               <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                               <http://schema.org/rangeIncludes> <http://schema.org/Event> ;
+                               rdfs:comment "An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent." .
+
+
+<http://schema.org/telephone> <http://schema.org/domainIncludes> <http://schema.org/ContactPoint> ;
+                              rdfs:label "telephone" ;
+                              rdfs:comment "The telephone number." ;
+                              <http://schema.org/rangeIncludes> <http://schema.org/Text> .
+
+
+<http://schema.org/translator> rdfs:label "translator" ;
+                               <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                               rdfs:comment "Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market, or that translates during some event." .
+
+
+<http://schema.org/typicalAgeRange> rdfs:label "typicalAgeRange" ;
+                                    <http://schema.org/domainIncludes> <http://schema.org/Event> ;
+                                    <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                                    rdfs:comment "The typical expected age range, e.g. '7-9', '11-'." .
+
+
+<http://schema.org/typicalTest> rdfs:comment "A medical test typically performed given this condition." ;
+                                rdfs:label "typicalTest" ;
+                                <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
+                                <http://schema.org/isPartOf> <http://health-lifesci.schema.org> .
+
+
+<http://schema.org/url> rdfs:comment "URL of the item." ;
+                        <http://schema.org/rangeIncludes> <http://schema.org/URL> ;
+                        rdfs:label "url" .
+
+
+<http://schema.org/usedToDiagnose> <http://schema.org/rangeIncludes> <http://schema.org/MedicalCondition> .
+
+
+<http://schema.org/vatID> rdfs:comment "The Value-added Tax ID of the organization or person." ;
+                          <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+                          <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                          rdfs:label "vatID" .
+
+
+<http://schema.org/weight> <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                           rdfs:label "weight" ;
+                           <http://schema.org/rangeIncludes> <http://schema.org/QuantitativeValue> ;
+                           rdfs:comment "The weight of the product or person." .
+
+
+<http://schema.org/worksFor> rdfs:label "worksFor" ;
+                             rdfs:comment "Organizations that the person works for." .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://hadatac.org/ont/chear#Father>
+                <http://hadatac.org/ont/chear#Sibling>
+                :Brother
+                :Mother
+                :Sister
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://hadatac.org/ont/chear#Father>
+                :Brother
+                :Mother
+                :Sister
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
