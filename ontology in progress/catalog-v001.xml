@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://www.semanticweb.org/laia.subirats/ontologies/2017/7/HORD" uri="file:/C:/Users/Sandra/School/Current%20Classes/Ontology%20Development/Disability-Ontology/external%20ontologies/BioPortal%20Ontologies/HORD_all_2017_08_08_scenarios.owl"/>
+    <uri id="Imports Wizard Entry" name="http://hadatac.org/ont/chear/1.1" uri="file:/C:/Users/Sandra/School/Current%20Classes/Ontology%20Development/Disability-Ontology/external%20ontologies/BioPortal%20Ontologies/chear.owl"/>
     <uri id="Imports Wizard Entry" name="http://purl.bioontology.org/ontology/PMR.owl" uri="file:/C:/Users/Sandra/School/Current%20Classes/Ontology%20Development/Disability-Ontology/external%20ontologies/BioPortal%20Ontologies/PMR_2017_07_15.owl"/>
     <uri id="Imports Wizard Entry" name="http://who.int/icf" uri="file:/C:/Users/Sandra/School/Current%20Classes/Ontology%20Development/Disability-Ontology/external%20ontologies/BioPortal%20Ontologies/icf_2012.05.08_merged_for_bp.owl"/>
     <uri id="User Entered Import Resolution" name="http://purl.bioontology.org/ontology/PMR.owl" uri="file:/C:/Users/Sandra/School/Current%20Classes/Ontology%20Development/Disability-Ontology/external%20ontologies/PMR_2017_07_15.owl"/>
     <uri id="User Entered Import Resolution" name="http://who.int/icf" uri="file:/C:/Users/Sandra/School/Current%20Classes/Ontology%20Development/Disability-Ontology/external%20ontologies/icf_2012.05.08_merged_for_bp.owl"/>
-    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base=""/>
 </catalog>
