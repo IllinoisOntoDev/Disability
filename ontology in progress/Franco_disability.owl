@@ -11,6 +11,8 @@
 
 <http://purl.org/lis590OD/Fall17/DisabilityOnt> rdf:type owl:Ontology ;
                                                  owl:versionIRI <http://purl.org/lis590OD/Fall17/DisabilityOnt/1.0.0> ;
+                                                 owl:imports <http://who.int/icf> ,
+                                                             <http://purl.bioontology.org/ontology/PMR.owl> ;
                                                  rdfs:comment "The mission of this ontology is to improve Champaign County’s system of care for persons with disabilities so as to avoid incarceration, reduce recidivism, provide rehabilitation, and promote a humanistic view of disability."@en .
 
 #################################################################
@@ -4712,8 +4714,8 @@ pmr:Traumatic_injury rdfs:label "Traumatic injury" .
 <http://schema.org/expectedPrognosis> rdfs:label "expectedPrognosis" ;
                                       <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
                                       <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
-                                      <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
-                                      rdfs:comment "The likely outcome in either the short term or long term of the medical condition." .
+                                      rdfs:comment "The likely outcome in either the short term or long term of the medical condition." ;
+                                      <http://schema.org/isPartOf> <http://health-lifesci.schema.org> .
 
 
 <http://schema.org/familyName> rdfs:label "familyName" ;
@@ -4772,8 +4774,8 @@ pmr:Traumatic_injury rdfs:label "Traumatic injury" .
 <http://schema.org/healthCondition> <http://schema.org/rangeIncludes> <http://schema.org/MedicalCondition> .
 
 
-<http://schema.org/height> <http://schema.org/domainIncludes> <http://schema.org/MediaObject> ,
-                                                              <http://schema.org/VisualArtwork> ;
+<http://schema.org/height> <http://schema.org/domainIncludes> <http://schema.org/VisualArtwork> ,
+                                                              <http://schema.org/MediaObject> ;
                            <http://schema.org/rangeIncludes> <http://schema.org/Distance> ;
                            rdfs:label "height" ;
                            <http://schema.org/rangeIncludes> <http://schema.org/QuantitativeValue> ;
@@ -5010,9 +5012,9 @@ pmr:Traumatic_injury rdfs:label "Traumatic injury" .
                                       <http://schema.org/rangeIncludes> <http://schema.org/MedicalSpecialty> .
 
 
-<http://schema.org/remainingAttendeeCapacity> <http://schema.org/rangeIncludes> <http://schema.org/Integer> ;
-                                              rdfs:label "remainingAttendeeCapacity" ;
+<http://schema.org/remainingAttendeeCapacity> rdfs:label "remainingAttendeeCapacity" ;
                                               rdfs:comment "The number of attendee places for an event that remain unallocated." ;
+                                              <http://schema.org/rangeIncludes> <http://schema.org/Integer> ;
                                               <http://schema.org/domainIncludes> <http://schema.org/Event> .
 
 
