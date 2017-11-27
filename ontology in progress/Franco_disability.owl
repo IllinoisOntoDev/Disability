@@ -428,7 +428,7 @@ owl:topObjectProperty rdfs:range pmr:Occupation .
 
 ###  http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence
 <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> rdf:type owl:Class ;
-                                                               <http://schema.org/description> "Talent, skill, or proficiency in a particular area" ;
+                                                               <http://schema.org/description> "\"Possession of the means or skill to do something, talent, skill, or proficiency in a particular area (oxfordditionaries.com)\"" ;
                                                                rdfs:label "Ability" .
 
 
@@ -446,7 +446,9 @@ owl:topObjectProperty rdfs:range pmr:Occupation .
 ###  http://mccarthy.dia.fi.upm.es/Language_Ontology#Language_Proficiency
 <http://mccarthy.dia.fi.upm.es/Language_Ontology#Language_Proficiency> rdf:type owl:Class ;
                                                                        rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
-                                                                       rdfs:label "Language Proficiency" .
+                                                                       <http://schema.org/description> "\"The ability of an individual to speak or perform in a language (Wikipedia.com)\"" ;
+                                                                       rdfs:label "Language Proficiency" ;
+                                                                       rdfs:seeAlso "https://en.wikipedia.org/wiki/Language_proficiency"^^xsd:anyURI .
 
 
 ###  http://mccarthy.dia.fi.upm.es/Skill_Ontology#Apple_Certificate
@@ -622,7 +624,9 @@ owl:topObjectProperty rdfs:range pmr:Occupation .
 
 ###  http://mccarthy.dia.fi.upm.es/Skill_Ontology#Skill
 <http://mccarthy.dia.fi.upm.es/Skill_Ontology#Skill> rdf:type owl:Class ;
-                                                     rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> .
+                                                     rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
+                                                     <http://schema.org/description> "\"The ability to use one's knowledge effectively and readily in execution or performance (Merriam-Webster)\"" ;
+                                                     rdfs:label "Skill" .
 
 
 ###  http://mccarthy.dia.fi.upm.es/Skill_Ontology#Specific_Application
@@ -656,8 +660,8 @@ owl:topObjectProperty rdfs:range pmr:Occupation .
 
 ###  http://purl.bioontology.org/ontology/PMR.owl#Occupation
 pmr:Occupation rdf:type owl:Class ;
-               <http://schema.org/description> "An act or instance of employing someone or something. 2. the state of being employed; employ; service: to begin or terminate employment. 3. an occupation by which a person earns a living; work; business" ;
-               rdfs:label "Employement" .
+               <http://schema.org/description> "\"An act or instance of employing someone or something. 2. the state of being employed; employ; service: to begin or terminate employment. 3. an occupation by which a person earns a living; work; business (dictionary.com)\"" ;
+               rdfs:label "Employment" .
 
 
 ###  http://purl.bioontology.org/ontology/PMR.owl#Substance
@@ -693,7 +697,10 @@ pmr:Traumatic_and_or_non-traumatic_injury rdf:type owl:Class ;
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Knowledge
 :Knowledge rdf:type owl:Class ;
-           rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> .
+           rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
+           pmr:description "\"Facts, information, and skills acquired through experience or education; the theoretical or practical understanding of a subject (oxforddictionaries)\"" ;
+           rdfs:label "Knowledge" ;
+           rdfs:seeAlso "https://en.wikipedia.org/wiki/Knowledge"^^xsd:anyURI .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Mental_disorder
@@ -715,7 +722,7 @@ pmr:Traumatic_and_or_non-traumatic_injury rdf:type owl:Class ;
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Personal
 :Personal rdf:type owl:Class ;
-          <http://schema.org/description> "Recorded information about an identifiable individual that may include their name, address, email address, phone number, race, nationality, ethnicity." ;
+          <http://schema.org/description> "\"Recorded information about an identifiable individual that may include their name, address, email address, phone number, race, nationality, ethnicity (businessdictionary.com)\"" ;
           rdfs:label "Personal Information" .
 
 
@@ -754,7 +761,7 @@ pmr:Traumatic_and_or_non-traumatic_injury rdf:type owl:Class ;
 
 ###  http://schema.org/Event
 <http://schema.org/Event> rdf:type owl:Class ;
-                          rdfs:comment "A medical history is a collection of information about a patient which includes current medical data, the patient's past history of medical issues, the patient's family history, and relevant health information which can help a doctor or care provider tailor diagnosis and treatment to the patient." ;
+                          pmr:description "\"A medical history is a collection of information about a patient which includes current medical data, the patient's past history of medical issues, the patient's family history, and relevant health information which can help a doctor or care provider tailor diagnosis and treatment to the patient\"" ;
                           rdfs:label "Medical History" .
 
 
@@ -779,7 +786,8 @@ icf:d130-d159 rdf:type owl:Class ;
 
 ###  http://who.int/icf#d2
 icf:d2 rdf:type owl:Class ;
-       rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> .
+       rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
+       pmr:description "\"A piece of work to be done, especially one done regularly (Cambridge Dictionary)\"" .
 
 
 ###  http://who.int/icf#d3
@@ -789,7 +797,8 @@ icf:d3 rdf:type owl:Class ;
 
 ###  http://who.int/icf#d4
 icf:d4 rdf:type owl:Class ;
-       rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> .
+       rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
+       <http://schema.org/description> "\"The ability to move or be moved freely and easily (dictionary.com)\"" .
 
 
 ###  http://who.int/icf#d410-d429
@@ -798,7 +807,9 @@ icf:d410-d429 rdf:type owl:Class .
 
 ###  http://who.int/icf#d5
 icf:d5 rdf:type owl:Class ;
-       rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> .
+       rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
+       <http://schema.org/description> "\"Self care is care provided “for you, by you.” It's about identifying your own needs and taking steps to meet them (fgwrc.ca)\"" ;
+       rdfs:seeAlso "https://en.wikipedia.org/wiki/Self-care"^^xsd:anyURI .
 
 
 ###  http://who.int/icf#d7
@@ -833,12 +844,14 @@ icf:d770 rdf:type owl:Class ;
 
 ###  http://who.int/icf#d8
 icf:d8 rdf:type owl:Class ;
-       <http://schema.org/description> "History that concentrates upon the social, economic, and cultural institutions of a people — compare cultural history. 2 : the environmental history of an individual;" .
+       rdfs:subClassOf <http://schema.org/Event> ;
+       <http://schema.org/description> "\"Portion of the medical history (and thus the admission note) addressing familial, occupational, and recreational aspects of the patient's personal life that have the potential to be clinically significant (Wikipedia.com)\"" ;
+       rdfs:seeAlso "https://en.wikipedia.org/wiki/Social_history_(medicine)"^^xsd:anyURI .
 
 
 ###  http://who.int/icf#d810-d839
 icf:d810-d839 rdf:type owl:Class ;
-              <http://schema.org/description> "The process of receiving or giving systematic instruction, especially at a school or university" .
+              <http://schema.org/description> "\"The process of receiving or giving systematic instruction, especially at a school or university (oxforddictionaries.com)\"" .
 
 
 ###  http://who.int/icf#d840
@@ -871,7 +884,8 @@ icf:d930 rdf:type owl:Class .
 
 ###  http://who.int/icf#e115
 icf:e115 rdf:type owl:Class ;
-         <http://schema.org/description> "An umbrella term that includes assistive, adaptive, and rehabilitative devices for people with disabilities and also includes the process used in selecting, locating, and using them." .
+         <http://schema.org/description> "\"An umbrella term that includes assistive, adaptive, and rehabilitative devices for people with disabilities and also includes the process used in selecting, locating, and using them (Wikipedia.com)\"" ;
+         rdfs:seeAlso "https://en.wikipedia.org/wiki/Assistive_technology"^^xsd:anyURI .
 
 
 ###  http://who.int/icf#e1151
@@ -4422,6 +4436,30 @@ icf:e1451 rdf:type owl:Class .
                      icf:e1201 .
 
 
+###  http://who.int/icf#a1960_0b0e53f9_fed2_4335_b57c_17b6316589fc
+icf:a1960_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type icf:d630-d649 .
+
+
+###  http://who.int/icf#a1962_0b0e53f9_fed2_4335_b57c_17b6316589fc
+icf:a1962_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type icf:d630-d649 .
+
+
+###  http://who.int/icf#a2067_0b0e53f9_fed2_4335_b57c_17b6316589fc
+icf:a2067_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type icf:d630-d649 .
+
+
+###  http://who.int/icf#a2069_0b0e53f9_fed2_4335_b57c_17b6316589fc
+icf:a2069_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type icf:d630-d649 .
+
+
+###  http://who.int/icf#a2073_0b0e53f9_fed2_4335_b57c_17b6316589fc
+icf:a2073_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type icf:d630-d649 .
+
+
+###  http://who.int/icf#a2075_0b0e53f9_fed2_4335_b57c_17b6316589fc
+icf:a2075_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type icf:d630-d649 .
+
+
 #################################################################
 #    Annotations
 #################################################################
@@ -4714,8 +4752,8 @@ pmr:Traumatic_injury rdfs:label "Traumatic injury" .
 <http://schema.org/expectedPrognosis> rdfs:label "expectedPrognosis" ;
                                       <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
                                       <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
-                                      rdfs:comment "The likely outcome in either the short term or long term of the medical condition." ;
-                                      <http://schema.org/isPartOf> <http://health-lifesci.schema.org> .
+                                      <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                                      rdfs:comment "The likely outcome in either the short term or long term of the medical condition." .
 
 
 <http://schema.org/familyName> rdfs:label "familyName" ;
@@ -4774,8 +4812,8 @@ pmr:Traumatic_injury rdfs:label "Traumatic injury" .
 <http://schema.org/healthCondition> <http://schema.org/rangeIncludes> <http://schema.org/MedicalCondition> .
 
 
-<http://schema.org/height> <http://schema.org/domainIncludes> <http://schema.org/VisualArtwork> ,
-                                                              <http://schema.org/MediaObject> ;
+<http://schema.org/height> <http://schema.org/domainIncludes> <http://schema.org/MediaObject> ,
+                                                              <http://schema.org/VisualArtwork> ;
                            <http://schema.org/rangeIncludes> <http://schema.org/Distance> ;
                            rdfs:label "height" ;
                            <http://schema.org/rangeIncludes> <http://schema.org/QuantitativeValue> ;
@@ -5012,8 +5050,8 @@ pmr:Traumatic_injury rdfs:label "Traumatic injury" .
                                       <http://schema.org/rangeIncludes> <http://schema.org/MedicalSpecialty> .
 
 
-<http://schema.org/remainingAttendeeCapacity> rdfs:label "remainingAttendeeCapacity" ;
-                                              rdfs:comment "The number of attendee places for an event that remain unallocated." ;
+<http://schema.org/remainingAttendeeCapacity> rdfs:comment "The number of attendee places for an event that remain unallocated." ;
+                                              rdfs:label "remainingAttendeeCapacity" ;
                                               <http://schema.org/rangeIncludes> <http://schema.org/Integer> ;
                                               <http://schema.org/domainIncludes> <http://schema.org/Event> .
 
@@ -5185,6 +5223,45 @@ pmr:Traumatic_injury rdfs:label "Traumatic injury" .
 
 <http://schema.org/worksFor> rdfs:label "worksFor" ;
                              rdfs:comment "Organizations that the person works for." .
+
+
+icf:d210 pmr:description "\"Carrying out simple or complex and coordinated actions related to the mental and physical components of a single task, such as initiating a task, organizing time, space and materials for a task, pacing task performance, and carrying out, completing, and sustaining a task (ICF illustration library)\"" .
+
+
+icf:d2100 pmr:description "\"Preparing, initiating and arranging the time and space required for a simple task; executing a simple task with a single major component, such as reading a book, writing a letter, or making one's bed (ICF illustration library)\"" .
+
+
+icf:d2101 pmr:description "\"Preparing, initiating and arranging the time and space for a single complex task; executing a complex task with more than one component, which may be carried out in sequence or simultaneously, such as arranging the furniture in one's home or completing an assignment for school (ICF illustration library)\"" .
+
+
+icf:d2103 pmr:description "\"Preparing, initiating and arranging the time and space for a single task, simple or complex; managing and executing a task with people who are involved in some or all steps of the task (ICF illustration library)\"" .
+
+
+icf:d220 pmr:description "\"Carrying out simple or complex and coordinated actions as components of multiple, integrated and complex tasks in sequence or simultaneously (ICF illustration library)\"" .
+
+
+icf:d2200 pmr:description "\"Preparing, initiating and arranging the time and space needed for several tasks, and managing and executing several tasks, together or sequentially (ICF illustration library)\"" .
+
+
+icf:d2201 pmr:description "\"Completing several tasks, together or sequentially (ICF illustration library\"" .
+
+
+icf:d2203 pmr:description "\"Preparing, initiating and arranging the time and space for multiple tasks, and managing and executing several tasks together or sequentially with others who are involved in some or all steps of the multiple tasks (ICF illustration library)\"" .
+
+
+icf:d230 pmr:description "\"Carrying out simple or complex and coordinated actions in order to plan, manage and complete the requirements of day-to-day procedures or duties, such as budgeting time and making plans for separate activities throughout the day (ICF illustration library)\"" .
+
+
+icf:d240 pmr:description "\"Carrying out simple or complex and coordinated actions to manage and control the psychological demands required to carry out tasks demanding significant responsibilities and involving stress, distraction, or crises, such as driving a vehicle during heavy traffic or taking care of many children (ICF illustration library)\"" .
+
+
+icf:d2400 pmr:description "\"Carrying out simple or complex and coordinated actions to manage the duties of task performance and to assess the requirements of these duties (ICF illustration library)\"" .
+
+
+icf:d2401 pmr:description "\"Carrying out simple or complex and coordinated actions to cope with pressure, emergencies or stress associated with task performance (ICF illustration library)\"" .
+
+
+icf:d2402 pmr:description "\"Carrying out simple or complex and coordinated actions to cope with decisive turning points in a situation or times of acute danger or difficulty (ICF illustration library)\"" .
 
 
 ###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

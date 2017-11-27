@@ -2062,54 +2062,6 @@ Range is not correct, but we&apos;ll leave it this way in this version</rdfs:com
     
 
 
-    <!-- http://who.int/icf#d6400 -->
-
-    <owl:Class rdf:about="http://who.int/icf#d6400">
-        <rdfs:subClassOf rdf:resource="http://who.int/icf#d630-d649"/>
-    </owl:Class>
-    
-
-
-    <!-- http://who.int/icf#d6401 -->
-
-    <owl:Class rdf:about="http://who.int/icf#d6401">
-        <rdfs:subClassOf rdf:resource="http://who.int/icf#d630-d649"/>
-    </owl:Class>
-    
-
-
-    <!-- http://who.int/icf#d6402 -->
-
-    <owl:Class rdf:about="http://who.int/icf#d6402">
-        <rdfs:subClassOf rdf:resource="http://who.int/icf#d630-d649"/>
-    </owl:Class>
-    
-
-
-    <!-- http://who.int/icf#d6403 -->
-
-    <owl:Class rdf:about="http://who.int/icf#d6403">
-        <rdfs:subClassOf rdf:resource="http://who.int/icf#d630-d649"/>
-    </owl:Class>
-    
-
-
-    <!-- http://who.int/icf#d6404 -->
-
-    <owl:Class rdf:about="http://who.int/icf#d6404">
-        <rdfs:subClassOf rdf:resource="http://who.int/icf#d630-d649"/>
-    </owl:Class>
-    
-
-
-    <!-- http://who.int/icf#d6405 -->
-
-    <owl:Class rdf:about="http://who.int/icf#d6405">
-        <rdfs:subClassOf rdf:resource="http://who.int/icf#d630-d649"/>
-    </owl:Class>
-    
-
-
     <!-- http://who.int/icf#d6408 -->
 
     <owl:Class rdf:about="http://who.int/icf#d6408">
@@ -2142,9 +2094,7 @@ Range is not correct, but we&apos;ll leave it this way in this version</rdfs:com
 
     <!-- http://who.int/icf#d710-d729 -->
 
-    <owl:Class rdf:about="http://who.int/icf#d710-d729">
-        <rdfs:subClassOf rdf:resource="http://who.int/icf#d3"/>
-    </owl:Class>
+    <owl:Class rdf:about="http://who.int/icf#d710-d729"/>
     
 
 
@@ -53275,19 +53225,15 @@ The individual attitudes are categorized according to the kinds of relationships
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Solve problems, other unspecified</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d2">
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GENERAL TASKS AND DEMANDS</skos:altLabel>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">General Task or Demand</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d210">
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undertaking a single task</skos:altLabel>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undertake a single task</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d2100">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undertake a simple task</rdfs:label>
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undertaking a simple task</skos:altLabel>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d2101">
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undertaking a complex task</skos:altLabel>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undertake a complex task</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d2102">
@@ -53295,7 +53241,6 @@ The individual attitudes are categorized according to the kinds of relationships
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undertake a single task independently</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d2103">
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undertaking a single task in a group</skos:altLabel>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undertake a single task in a group</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d2108">
@@ -53307,23 +53252,19 @@ The individual attitudes are categorized according to the kinds of relationships
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undertake single task, unspecified</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d220">
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undertaking multiple tasks</skos:altLabel>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undertake multiple tasks</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d2200">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carry out multiple tasks</rdfs:label>
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carrying out multiple tasks</skos:altLabel>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d2201">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Complete multiple tasks</rdfs:label>
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Completing multiple tasks</skos:altLabel>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d2202">
         <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undertaking multiple tasks independently</skos:altLabel>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undertake multiple tasks independently</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d2203">
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undertaking multiple tasks in a group</skos:altLabel>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undertake multiple tasks in a group</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d2208">
@@ -53336,7 +53277,6 @@ The individual attitudes are categorized according to the kinds of relationships
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d230">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carry out daily routine</rdfs:label>
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carrying out daily routine</skos:altLabel>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d2301">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Manage daily routine</rdfs:label>
@@ -53347,20 +53287,16 @@ The individual attitudes are categorized according to the kinds of relationships
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Complete daily routine</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d240">
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Handling stress and other psychological demands</skos:altLabel>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Handle stress or other psychological demand</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d2400">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Handle responsibility</rdfs:label>
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Handling responsibilities</skos:altLabel>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d2401">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Handle stress</rdfs:label>
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Handling stress</skos:altLabel>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d2402">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Handle crisis</rdfs:label>
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Handling crisis</skos:altLabel>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d2408">
         <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Handling stress and other psychological demands, other specified</skos:altLabel>
@@ -53424,7 +53360,6 @@ The individual attitudes are categorized according to the kinds of relationships
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d4">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mobilty</rdfs:label>
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MOBILITY</skos:altLabel>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d410-d429">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Change and maintain body position</rdfs:label>
@@ -53743,7 +53678,6 @@ The individual attitudes are categorized according to the kinds of relationships
         <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mobility, unspecified</skos:altLabel>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d5">
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SELF-CARE</skos:altLabel>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Self-care</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d510">
@@ -53933,30 +53867,6 @@ The individual attitudes are categorized according to the kinds of relationships
     <rdf:Description rdf:about="http://who.int/icf#d630-d649">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Household  task</rdfs:label>
         <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Household  tasks</skos:altLabel>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://who.int/icf#d6400">
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Washing and drying clothes and garments</skos:altLabel>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wash and dry clothes and garments</rdfs:label>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://who.int/icf#d6401">
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Clean cooking area and utensils</rdfs:label>
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cleaning cooking area and utensils</skos:altLabel>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://who.int/icf#d6402">
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Clean living area</rdfs:label>
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cleaning living area</skos:altLabel>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://who.int/icf#d6403">
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Using household appliances</skos:altLabel>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Use household appliances</rdfs:label>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://who.int/icf#d6404">
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Store daily necessities</rdfs:label>
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Storing daily necessities</skos:altLabel>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://who.int/icf#d6405">
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Disposing of garbage</skos:altLabel>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dispose of garbage</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d6408">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Housework, other specified</rdfs:label>
@@ -54155,7 +54065,6 @@ The individual attitudes are categorized according to the kinds of relationships
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d8">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Social History</rdfs:label>
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MAJOR LIFE AREAS</skos:altLabel>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d810">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Informal education</rdfs:label>
@@ -54163,7 +54072,6 @@ The individual attitudes are categorized according to the kinds of relationships
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d810-d839">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Education</rdfs:label>
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Education</skos:altLabel>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#d815">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Preschool education</rdfs:label>
@@ -54267,7 +54175,6 @@ The individual attitudes are categorized according to the kinds of relationships
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#e115">
         <rdfs:label>Assistive Technology</rdfs:label>
-        <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Products and technology for personal use in daily living</skos:altLabel>
     </rdf:Description>
     <rdf:Description rdf:about="http://who.int/icf#e1151">
         <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Assistive products and technology for personal use in daily living</skos:altLabel>
