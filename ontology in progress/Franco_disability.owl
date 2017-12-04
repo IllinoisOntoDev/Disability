@@ -222,6 +222,13 @@ pmr:is_related_to rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
             rdfs:range icf:d7601 .
 
 
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_medical_history
+:has_medical_history rdf:type owl:ObjectProperty ;
+                     owl:inverseOf :is_medical_history_of ;
+                     rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+                     rdfs:range <http://schema.org/Event> .
+
+
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_mental_illness
 :has_mental_illness rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf owl:topObjectProperty ;
@@ -316,6 +323,12 @@ pmr:is_related_to rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
 :is_father_of rdf:type owl:ObjectProperty ;
               rdfs:domain icf:d7601 ;
               rdfs:range <http://xmlns.com/foaf/0.1/Person> .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_medical_history_of
+:is_medical_history_of rdf:type owl:ObjectProperty ;
+                       rdfs:domain <http://schema.org/Event> ;
+                       rdfs:range <http://xmlns.com/foaf/0.1/Person> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_mental_illness_of
@@ -979,6 +992,14 @@ icf:e1451 rdf:type owl:Class .
                                                    [ rdf:type owl:Restriction ;
                                                      owl:onProperty :has_ability ;
                                                      owl:someValuesFrom <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence>
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :has_father ;
+                                                     owl:allValuesFrom icf:d7601
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :has_mother ;
+                                                     owl:allValuesFrom icf:d7600
                                                    ] .
 
 
