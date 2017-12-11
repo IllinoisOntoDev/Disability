@@ -13,8 +13,7 @@
 
 <http://purl.org/lis590OD/Fall17/DisabilityOnt> rdf:type owl:Ontology ;
                                                  owl:versionIRI <http://purl.org/lis590OD/Fall17/DisabilityOnt/1.0.0> ;
-                                                 owl:imports <http://who.int/icf> ,
-                                                             <http://purl.bioontology.org/ontology/PMR.owl> ,
+                                                 owl:imports <http://purl.bioontology.org/ontology/PMR.owl> ,
                                                              foaf: ,
                                                              <http://purl.org/lis590OD/Fall17/ExOffenderEmp> ;
                                                  rdfs:comment "The mission of this ontology is to improve Champaign County’s system of care for persons with disabilities so as to avoid incarceration, reduce recidivism, provide rehabilitation, and promote a humanistic view of disability."@en .
@@ -862,12 +861,14 @@ icf:d3 rdf:type owl:Class ;
 
 
 ###  http://who.int/icf#d330-d349
-icf:d330-d349 owl:disjointWith icf:d335 ,
+icf:d330-d349 rdf:type owl:Class ;
+              owl:disjointWith icf:d335 ,
                                icf:d710-d729 .
 
 
 ###  http://who.int/icf#d335
-icf:d335 owl:disjointWith icf:d710-d729 .
+icf:d335 rdf:type owl:Class ;
+         owl:disjointWith icf:d710-d729 .
 
 
 ###  http://who.int/icf#d4
@@ -888,27 +889,37 @@ icf:d5 rdf:type owl:Class ;
 
 
 ###  http://who.int/icf#d540
-icf:d540 pmr:description "\"Put on one's clothes.\"" .
+icf:d540 rdf:type owl:Class ;
+         pmr:description "\"Put on one's clothes.\"" .
 
 
 ###  http://who.int/icf#d5400
-icf:d5400 rdfs:subClassOf icf:d540 .
+icf:d5400 rdf:type owl:Class ;
+          rdfs:subClassOf icf:d540 .
 
 
 ###  http://who.int/icf#d5401
-icf:d5401 rdfs:subClassOf icf:d540 .
+icf:d5401 rdf:type owl:Class ;
+          rdfs:subClassOf icf:d540 .
 
 
 ###  http://who.int/icf#d5402
-icf:d5402 rdfs:subClassOf icf:d540 .
+icf:d5402 rdf:type owl:Class ;
+          rdfs:subClassOf icf:d540 .
 
 
 ###  http://who.int/icf#d5403
-icf:d5403 rdfs:subClassOf icf:d540 .
+icf:d5403 rdf:type owl:Class ;
+          rdfs:subClassOf icf:d540 .
 
 
 ###  http://who.int/icf#d5404
-icf:d5404 rdfs:subClassOf icf:d540 .
+icf:d5404 rdf:type owl:Class ;
+          rdfs:subClassOf icf:d540 .
+
+
+###  http://who.int/icf#d630-d649
+icf:d630-d649 rdf:type owl:Class .
 
 
 ###  http://who.int/icf#d7
@@ -936,9 +947,21 @@ icf:d760 rdf:type owl:Class ;
          rdfs:subClassOf icf:d7 .
 
 
+###  http://who.int/icf#d7600
+icf:d7600 rdf:type owl:Class .
+
+
+###  http://who.int/icf#d7601
+icf:d7601 rdf:type owl:Class .
+
+
 ###  http://who.int/icf#d770
 icf:d770 rdf:type owl:Class ;
          rdfs:subClassOf icf:d7 .
+
+
+###  http://who.int/icf#d7701
+icf:d7701 rdf:type owl:Class .
 
 
 ###  http://who.int/icf#d8
@@ -978,8 +1001,16 @@ icf:d859 rdf:type owl:Class .
 icf:d920 rdf:type owl:Class .
 
 
+###  http://who.int/icf#d9201
+icf:d9201 rdf:type owl:Class .
+
+
 ###  http://who.int/icf#d930
 icf:d930 rdf:type owl:Class .
+
+
+###  http://who.int/icf#d9300
+icf:d9300 rdf:type owl:Class .
 
 
 ###  http://who.int/icf#e115
@@ -1022,6 +1053,16 @@ icf:e1401 rdf:type owl:Class .
 ###  http://who.int/icf#e1451
 icf:e1451 rdf:type owl:Class .
 
+
+###  http://who.int/icf#e350
+icf:e350 rdf:type owl:Class .
+
+
+###  http://www.w3.org/2002/07/owl#Thing
+owl:Thing owl:equivalentClass foaf:OnlineAccount .
+
+
+###  http://xmlns.com/foaf/0.1/OnlineAccount
 
 ###  http://xmlns.com/foaf/0.1/Person
 foaf:Person rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -3644,47 +3685,59 @@ foaf:Person rdfs:subClassOf [ rdf:type owl:Restriction ;
 
 
 ###  http://who.int/icf#a1960_0b0e53f9_fed2_4335_b57c_17b6316589fc
-icf:a1960_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type icf:d630-d649 .
+icf:a1960_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type owl:NamedIndividual ,
+                                                        icf:d630-d649 .
 
 
 ###  http://who.int/icf#a1962_0b0e53f9_fed2_4335_b57c_17b6316589fc
-icf:a1962_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type icf:d630-d649 .
+icf:a1962_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type owl:NamedIndividual ,
+                                                        icf:d630-d649 .
 
 
 ###  http://who.int/icf#a2067_0b0e53f9_fed2_4335_b57c_17b6316589fc
-icf:a2067_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type icf:d630-d649 .
+icf:a2067_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type owl:NamedIndividual ,
+                                                        icf:d630-d649 .
 
 
 ###  http://who.int/icf#a2069_0b0e53f9_fed2_4335_b57c_17b6316589fc
-icf:a2069_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type icf:d630-d649 .
+icf:a2069_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type owl:NamedIndividual ,
+                                                        icf:d630-d649 .
 
 
 ###  http://who.int/icf#a2073_0b0e53f9_fed2_4335_b57c_17b6316589fc
-icf:a2073_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type icf:d630-d649 .
+icf:a2073_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type owl:NamedIndividual ,
+                                                        icf:d630-d649 .
 
 
 ###  http://who.int/icf#a2075_0b0e53f9_fed2_4335_b57c_17b6316589fc
-icf:a2075_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type icf:d630-d649 .
+icf:a2075_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type owl:NamedIndividual ,
+                                                        icf:d630-d649 .
 
 
 ###  http://who.int/icf#d5400
-icf:d5400 rdf:type icf:d540 .
+icf:d5400 rdf:type owl:NamedIndividual ,
+                   icf:d540 .
 
 
 ###  http://who.int/icf#d5401
-icf:d5401 rdf:type icf:d540 .
+icf:d5401 rdf:type owl:NamedIndividual ,
+                   icf:d540 .
 
 
 ###  http://who.int/icf#d5402
-icf:d5402 rdf:type icf:d540 .
+icf:d5402 rdf:type owl:NamedIndividual ,
+                   icf:d540 .
 
 
 ###  http://who.int/icf#d5403
-icf:d5403 rdf:type icf:d540 .
+icf:d5403 rdf:type owl:NamedIndividual ,
+                   icf:d540 .
 
 
 ###  http://who.int/icf#d5404
-icf:d5404 rdf:type icf:d540 ,
+icf:d5404 rdf:type owl:NamedIndividual ,
+                   icf:d540 ,
+                   owl:Class ,
                    icf:d5404 .
 
 
@@ -3962,8 +4015,8 @@ pmr:Process rdfs:label "Rehabilitation" .
 <http://schema.org/expectedPrognosis> rdfs:label "expectedPrognosis" ;
                                       <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
                                       <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
-                                      rdfs:comment "The likely outcome in either the short term or long term of the medical condition." ;
-                                      <http://schema.org/isPartOf> <http://health-lifesci.schema.org> .
+                                      <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
+                                      rdfs:comment "The likely outcome in either the short term or long term of the medical condition." .
 
 
 <http://schema.org/familyName> rdfs:label "familyName" ;
@@ -4019,8 +4072,8 @@ pmr:Process rdfs:label "Rehabilitation" .
 <http://schema.org/healthCondition> <http://schema.org/rangeIncludes> <http://schema.org/MedicalCondition> .
 
 
-<http://schema.org/height> <http://schema.org/domainIncludes> <http://schema.org/VisualArtwork> ,
-                                                              <http://schema.org/MediaObject> ;
+<http://schema.org/height> <http://schema.org/domainIncludes> <http://schema.org/MediaObject> ,
+                                                              <http://schema.org/VisualArtwork> ;
                            <http://schema.org/rangeIncludes> <http://schema.org/Distance> ;
                            rdfs:label "height" ;
                            <http://schema.org/rangeIncludes> <http://schema.org/QuantitativeValue> ;
@@ -4251,8 +4304,8 @@ pmr:Process rdfs:label "Rehabilitation" .
                                       <http://schema.org/rangeIncludes> <http://schema.org/MedicalSpecialty> .
 
 
-<http://schema.org/remainingAttendeeCapacity> rdfs:label "remainingAttendeeCapacity" ;
-                                              rdfs:comment "The number of attendee places for an event that remain unallocated." ;
+<http://schema.org/remainingAttendeeCapacity> rdfs:comment "The number of attendee places for an event that remain unallocated." ;
+                                              rdfs:label "remainingAttendeeCapacity" ;
                                               <http://schema.org/rangeIncludes> <http://schema.org/Integer> ;
                                               <http://schema.org/domainIncludes> <http://schema.org/Event> .
 
