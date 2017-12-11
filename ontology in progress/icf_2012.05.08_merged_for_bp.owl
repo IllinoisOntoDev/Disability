@@ -60,6 +60,12 @@
     
 
 
+    <!-- http://purl.org/lis590OD/Fall17/DisabilityOnt/Current_Employment -->
+
+    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/DisabilityOnt/Current_Employment"/>
+    
+
+
     <!-- http://who.int/icf#d130-d159 -->
 
     <owl:Class rdf:about="http://who.int/icf#d130-d159"/>
@@ -1811,7 +1817,7 @@
     <!-- http://who.int/icf#d840 -->
 
     <owl:Class rdf:about="http://who.int/icf#d840">
-        <rdfs:subClassOf rdf:resource="http://purl.bioontology.org/ontology/PMR.owl#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/DisabilityOnt/Current_Employment"/>
     </owl:Class>
     
 
@@ -1819,7 +1825,7 @@
     <!-- http://who.int/icf#d8500 -->
 
     <owl:Class rdf:about="http://who.int/icf#d8500">
-        <rdfs:subClassOf rdf:resource="http://purl.bioontology.org/ontology/PMR.owl#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/DisabilityOnt/Current_Employment"/>
     </owl:Class>
     
 
@@ -1827,7 +1833,7 @@
     <!-- http://who.int/icf#d8501 -->
 
     <owl:Class rdf:about="http://who.int/icf#d8501">
-        <rdfs:subClassOf rdf:resource="http://purl.bioontology.org/ontology/PMR.owl#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/DisabilityOnt/Current_Employment"/>
     </owl:Class>
     
 
@@ -1835,7 +1841,7 @@
     <!-- http://who.int/icf#d8502 -->
 
     <owl:Class rdf:about="http://who.int/icf#d8502">
-        <rdfs:subClassOf rdf:resource="http://purl.bioontology.org/ontology/PMR.owl#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/DisabilityOnt/Current_Employment"/>
     </owl:Class>
     
 
@@ -1843,7 +1849,7 @@
     <!-- http://who.int/icf#d859 -->
 
     <owl:Class rdf:about="http://who.int/icf#d859">
-        <rdfs:subClassOf rdf:resource="http://purl.bioontology.org/ontology/PMR.owl#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/DisabilityOnt/Current_Employment"/>
     </owl:Class>
     
 

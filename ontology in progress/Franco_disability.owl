@@ -6,14 +6,17 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix exoffenderemp: <http://purl.org/lis590OD/Fall17/ExOffenderEmp#> .
 @base <http://purl.org/lis590OD/Fall17/DisabilityOnt> .
 
 <http://purl.org/lis590OD/Fall17/DisabilityOnt> rdf:type owl:Ontology ;
                                                  owl:versionIRI <http://purl.org/lis590OD/Fall17/DisabilityOnt/1.0.0> ;
                                                  owl:imports <http://who.int/icf> ,
                                                              <http://purl.bioontology.org/ontology/PMR.owl> ,
-                                                             <http://xmlns.com/foaf/0.1/> ;
+                                                             foaf: ,
+                                                             <http://purl.org/lis590OD/Fall17/ExOffenderEmp> ;
                                                  rdfs:comment "The mission of this ontology is to improve Champaign County’s system of care for persons with disabilities so as to avoid incarceration, reduce recidivism, provide rehabilitation, and promote a humanistic view of disability."@en .
 
 #################################################################
@@ -146,7 +149,7 @@ rdf:type rdf:type owl:AnnotationProperty .
 ###  http://mccarthy.dia.fi.upm.es/Language_Ontology#is_mother_tongue_of_Candidacy
 <http://mccarthy.dia.fi.upm.es/Language_Ontology#is_mother_tongue_of_Candidacy> rdf:type owl:ObjectProperty ;
                                                                                 rdfs:domain <http://mccarthy.dia.fi.upm.es/Language_Ontology#Language> ;
-                                                                                rdfs:range <http://xmlns.com/foaf/0.1/Person> ;
+                                                                                rdfs:range foaf:Person ;
                                                                                 rdfs:label "is_mother_tongue" .
 
 
@@ -154,24 +157,24 @@ rdf:type rdf:type owl:AnnotationProperty .
 <http://mccarthy.dia.fi.upm.es/Language_Ontology#is_spoken_by_Candidacy> rdf:type owl:ObjectProperty ,
                                                                                   owl:TransitiveProperty ;
                                                                          rdfs:domain <http://mccarthy.dia.fi.upm.es/Language_Ontology#Language> ;
-                                                                         rdfs:range <http://xmlns.com/foaf/0.1/Person> ;
+                                                                         rdfs:range foaf:Person ;
                                                                          rdfs:label "is_spoken_by" .
 
 
 ###  http://purl.bioontology.org/ontology/PMR.owl#has_occupation
-pmr:has_occupation rdfs:domain <http://xmlns.com/foaf/0.1/Person> .
+pmr:has_occupation rdfs:domain foaf:Person .
 
 
 ###  http://purl.bioontology.org/ontology/PMR.owl#is_assisted_by
 pmr:is_assisted_by rdf:type owl:ObjectProperty ;
                    owl:inverseOf :assists ;
                    rdf:type owl:TransitiveProperty ;
-                   rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+                   rdfs:domain foaf:Person ;
                    rdfs:range icf:e115 .
 
 
 ###  http://purl.bioontology.org/ontology/PMR.owl#is_related_to
-pmr:is_related_to rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+pmr:is_related_to rdfs:domain foaf:Person ;
                   rdfs:range icf:d760 .
 
 
@@ -179,28 +182,28 @@ pmr:is_related_to rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
 :assists rdf:type owl:ObjectProperty ,
                   owl:TransitiveProperty ;
          rdfs:domain icf:e115 ;
-         rdfs:range <http://xmlns.com/foaf/0.1/Person> .
+         rdfs:range foaf:Person .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#enjoys
 :enjoys rdf:type owl:ObjectProperty ;
         owl:inverseOf :is_enjoyed_by ;
         rdf:type owl:TransitiveProperty ;
-        rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+        rdfs:domain foaf:Person ;
         rdfs:range icf:d920 .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_ability
 :has_ability rdf:type owl:ObjectProperty ;
              owl:inverseOf :is_ability_of ;
-             rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+             rdfs:domain foaf:Person ;
              rdfs:range <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_basic_knowledge
 :has_basic_knowledge rdf:type owl:ObjectProperty ;
                      owl:inverseOf :is_basic_knowledge_of ;
-                     rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+                     rdfs:domain foaf:Person ;
                      rdfs:range icf:d130-d159 .
 
 
@@ -218,14 +221,14 @@ pmr:is_related_to rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_father
 :has_father rdf:type owl:ObjectProperty ;
             owl:inverseOf :is_father_of ;
-            rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+            rdfs:domain foaf:Person ;
             rdfs:range icf:d7601 .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_medical_history
 :has_medical_history rdf:type owl:ObjectProperty ;
                      owl:inverseOf :is_medical_history_of ;
-                     rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+                     rdfs:domain foaf:Person ;
                      rdfs:range <http://schema.org/Event> .
 
 
@@ -241,14 +244,14 @@ pmr:is_related_to rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
 :has_mother rdf:type owl:ObjectProperty ;
             owl:inverseOf :is_mother_of ;
             rdf:type owl:FunctionalProperty ;
-            rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+            rdfs:domain foaf:Person ;
             rdfs:range icf:d7600 .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_part-time_employment
 :has_part-time_employment rdf:type owl:ObjectProperty ;
                           owl:inverseOf :is_part-time_employment_of ;
-                          rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+                          rdfs:domain foaf:Person ;
                           rdfs:range icf:d8501 .
 
 
@@ -263,13 +266,13 @@ pmr:is_related_to rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_skill
 :has_skill rdf:type owl:ObjectProperty ,
                     owl:TransitiveProperty ;
-           rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+           rdfs:domain foaf:Person ;
            rdfs:range <http://mccarthy.dia.fi.upm.es/Skill_Ontology#Skill> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_spouse
 :has_spouse rdf:type owl:ObjectProperty ;
-            rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+            rdfs:domain foaf:Person ;
             rdfs:range icf:d7701 .
 
 
@@ -283,20 +286,20 @@ pmr:is_related_to rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
                owl:inverseOf :is_able_to ;
                rdf:type owl:TransitiveProperty ;
                rdfs:domain <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
-               rdfs:range <http://xmlns.com/foaf/0.1/Person> .
+               rdfs:range foaf:Person .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_able_to
 :is_able_to rdf:type owl:ObjectProperty ,
                      owl:TransitiveProperty ;
-            rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+            rdfs:domain foaf:Person ;
             rdfs:range <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_basic_knowledge_of
 :is_basic_knowledge_of rdf:type owl:ObjectProperty ;
                        rdfs:domain icf:d130-d159 ;
-                       rdfs:range <http://xmlns.com/foaf/0.1/Person> .
+                       rdfs:range foaf:Person .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_disability_of
@@ -309,26 +312,26 @@ pmr:is_related_to rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
 :is_disorder_of rdf:type owl:ObjectProperty ,
                          owl:TransitiveProperty ;
                 rdfs:domain :Disorder ;
-                rdfs:range <http://xmlns.com/foaf/0.1/Person> .
+                rdfs:range foaf:Person .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_enjoyed_by
 :is_enjoyed_by rdf:type owl:ObjectProperty ,
                         owl:TransitiveProperty ;
                rdfs:domain icf:d920 ;
-               rdfs:range <http://xmlns.com/foaf/0.1/Person> .
+               rdfs:range foaf:Person .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_father_of
 :is_father_of rdf:type owl:ObjectProperty ;
               rdfs:domain icf:d7601 ;
-              rdfs:range <http://xmlns.com/foaf/0.1/Person> .
+              rdfs:range foaf:Person .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_medical_history_of
 :is_medical_history_of rdf:type owl:ObjectProperty ;
                        rdfs:domain <http://schema.org/Event> ;
-                       rdfs:range <http://xmlns.com/foaf/0.1/Person> .
+                       rdfs:range foaf:Person .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_mental_illness_of
@@ -340,19 +343,19 @@ pmr:is_related_to rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_mother_of
 :is_mother_of rdf:type owl:ObjectProperty ;
               rdfs:domain icf:d7600 ;
-              rdfs:range <http://xmlns.com/foaf/0.1/Person> .
+              rdfs:range foaf:Person .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_part-time_employment_of
 :is_part-time_employment_of rdf:type owl:ObjectProperty ;
                             rdfs:domain icf:d8501 ;
-                            rdfs:range <http://xmlns.com/foaf/0.1/Person> .
+                            rdfs:range foaf:Person .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_prescribed
 :is_prescribed rdf:type owl:ObjectProperty ,
                         owl:TransitiveProperty ;
-               rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+               rdfs:domain foaf:Person ;
                rdfs:range pmr:Substance .
 
 
@@ -360,7 +363,7 @@ pmr:is_related_to rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
 :is_prescription_of rdf:type owl:ObjectProperty ,
                              owl:TransitiveProperty ;
                     rdfs:domain pmr:Substance ;
-                    rdfs:range <http://xmlns.com/foaf/0.1/Person> .
+                    rdfs:range foaf:Person .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_problem_of
@@ -377,7 +380,7 @@ pmr:is_related_to rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
 :is_skill_of rdf:type owl:ObjectProperty ,
                       owl:TransitiveProperty ;
              rdfs:domain <http://mccarthy.dia.fi.upm.es/Skill_Ontology#Skill> ;
-             rdfs:range <http://xmlns.com/foaf/0.1/Person> .
+             rdfs:range foaf:Person .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_starting
@@ -399,14 +402,14 @@ pmr:is_related_to rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#practices
 :practices rdf:type owl:ObjectProperty ;
-           rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+           rdfs:domain foaf:Person ;
            rdfs:range icf:d930 .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#speaks
 :speaks rdf:type owl:ObjectProperty ,
                  owl:TransitiveProperty ;
-        rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+        rdfs:domain foaf:Person ;
         rdfs:range <http://mccarthy.dia.fi.upm.es/Language_Ontology#Language> .
 
 
@@ -422,9 +425,9 @@ pmr:is_related_to rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
 
 
 ###  http://xmlns.com/foaf/0.1/knows
-<http://xmlns.com/foaf/0.1/knows> rdf:type owl:ObjectProperty ,
-                                           owl:SymmetricProperty ;
-                                  rdfs:range icf:d7 .
+foaf:knows rdf:type owl:ObjectProperty ,
+                    owl:SymmetricProperty ;
+           rdfs:range icf:d7 .
 
 
 #################################################################
@@ -442,24 +445,24 @@ pmr:is_related_to rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
 
 
 ###  http://xmlns.com/foaf/0.1/familyName
-<http://xmlns.com/foaf/0.1/familyName> rdf:type owl:FunctionalProperty .
+foaf:familyName rdf:type owl:FunctionalProperty .
 
 
 ###  http://xmlns.com/foaf/0.1/gender
-<http://xmlns.com/foaf/0.1/gender> rdfs:domain <http://xmlns.com/foaf/0.1/Person> .
+foaf:gender rdfs:domain foaf:Person .
 
 
 ###  http://xmlns.com/foaf/0.1/name
-<http://xmlns.com/foaf/0.1/name> rdf:type owl:FunctionalProperty ;
-                                 rdfs:domain <http://xmlns.com/foaf/0.1/Person> .
+foaf:name rdf:type owl:FunctionalProperty ;
+          rdfs:domain foaf:Person .
 
 
 ###  http://xmlns.com/foaf/0.1/nick
-<http://xmlns.com/foaf/0.1/nick> rdfs:domain <http://xmlns.com/foaf/0.1/Person> .
+foaf:nick rdfs:domain foaf:Person .
 
 
 ###  http://xmlns.com/foaf/0.1/title
-<http://xmlns.com/foaf/0.1/title> rdfs:domain <http://xmlns.com/foaf/0.1/Person> .
+foaf:title rdfs:domain foaf:Person .
 
 
 #################################################################
@@ -472,7 +475,7 @@ pmr:is_related_to rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
                                                                                 <http://schema.org/Event> ,
                                                                                 icf:d810-d839 ,
                                                                                 icf:e115 ,
-                                                                                <http://xmlns.com/foaf/0.1/Person> ;
+                                                                                foaf:Person ;
                                                                <http://schema.org/description> "\"Possession of the means or skill to do something, talent, skill, or proficiency in a particular area (oxfordditionaries.com)\"" ;
                                                                rdfs:label "Ability" .
 
@@ -708,7 +711,7 @@ pmr:Occupation rdf:type owl:Class ;
                owl:disjointWith <http://schema.org/Event> ,
                                 icf:d810-d839 ,
                                 icf:e115 ,
-                                <http://xmlns.com/foaf/0.1/Person> ;
+                                foaf:Person ;
                <http://schema.org/description> "\"An act or instance of employing someone or something. 2. the state of being employed; employ; service: to begin or terminate employment. 3. an occupation by which a person earns a living; work; business (dictionary.com)\"" ;
                rdfs:label "Employment" .
 
@@ -748,7 +751,7 @@ pmr:Substance rdf:type owl:Class ;
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Person_with_Disability
 :Person_with_Disability rdf:type owl:Class ;
-                        rdfs:subClassOf <http://xmlns.com/foaf/0.1/Person> ,
+                        rdfs:subClassOf foaf:Person ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty :has_disability ;
                                           owl:someValuesFrom :Disorder
@@ -785,15 +788,49 @@ pmr:Substance rdf:type owl:Class ;
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#_other_unspecified
 :_other_unspecified rdf:type owl:Class ;
-                    rdfs:subClassOf pmr:Occupation ;
+                    rdfs:subClassOf <http://purl.org/lis590OD/Fall17/DisabilityOnt/Current_Employment> ;
                     rdfs:label "Employment, other unspecified" .
+
+
+###  http://purl.org/lis590OD/Fall17/DisabilityOnt/Current_Employment
+<http://purl.org/lis590OD/Fall17/DisabilityOnt/Current_Employment> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf pmr:Occupation ;
+                                                                   rdfs:label "Current employment" .
+
+
+###  http://purl.org/lis590OD/Fall17/ExOffenderEmp#Degree_Prisoner
+exoffenderemp:Degree_Prisoner rdfs:subClassOf exoffenderemp:Prisoner .
+
+
+###  http://purl.org/lis590OD/Fall17/ExOffenderEmp#Education_Field
+exoffenderemp:Education_Field rdfs:subClassOf icf:d810-d839 ;
+                              rdfs:label "Education field" .
+
+
+###  http://purl.org/lis590OD/Fall17/ExOffenderEmp#Education_Level
+exoffenderemp:Education_Level rdfs:subClassOf icf:d810-d839 ;
+                              rdfs:label "Education level" .
+
+
+###  http://purl.org/lis590OD/Fall17/ExOffenderEmp#Employment_Agency
+exoffenderemp:Employment_Agency rdfs:subClassOf pmr:Occupation ;
+                                rdfs:label "Employment agency" .
+
+
+###  http://purl.org/lis590OD/Fall17/ExOffenderEmp#Employment_Opportunity
+exoffenderemp:Employment_Opportunity rdfs:subClassOf pmr:Occupation ;
+                                     rdfs:label "Employment opportunity" .
+
+
+###  http://purl.org/lis590OD/Fall17/ExOffenderEmp#Prisoner
+exoffenderemp:Prisoner rdfs:subClassOf foaf:Person .
 
 
 ###  http://schema.org/Event
 <http://schema.org/Event> rdf:type owl:Class ;
                           owl:disjointWith icf:d810-d839 ,
                                            icf:e115 ,
-                                           <http://xmlns.com/foaf/0.1/Person> ;
+                                           foaf:Person ;
                           pmr:description "\"A medical history is a collection of information about a patient which includes current medical data, the patient's past history of medical issues, the patient's family history, and relevant health information which can help a doctor or care provider tailor diagnosis and treatment to the patient\"" ;
                           rdfs:label "Medical History" .
 
@@ -906,7 +943,6 @@ icf:d770 rdf:type owl:Class ;
 
 ###  http://who.int/icf#d8
 icf:d8 rdf:type owl:Class ;
-       rdfs:subClassOf <http://schema.org/Event> ;
        <http://schema.org/description> "\"Portion of the medical history (and thus the admission note) addressing familial, occupational, and recreational aspects of the patient's personal life that have the potential to be clinically significant (Wikipedia.com)\"" ;
        rdfs:seeAlso "https://en.wikipedia.org/wiki/Social_history_(medicine)"^^xsd:anyURI .
 
@@ -914,7 +950,7 @@ icf:d8 rdf:type owl:Class ;
 ###  http://who.int/icf#d810-d839
 icf:d810-d839 rdf:type owl:Class ;
               owl:disjointWith icf:e115 ,
-                               <http://xmlns.com/foaf/0.1/Person> ;
+                               foaf:Person ;
               <http://schema.org/description> "\"The process of receiving or giving systematic instruction, especially at a school or university (oxforddictionaries.com)\"" .
 
 
@@ -948,7 +984,7 @@ icf:d930 rdf:type owl:Class .
 
 ###  http://who.int/icf#e115
 icf:e115 rdf:type owl:Class ;
-         owl:disjointWith <http://xmlns.com/foaf/0.1/Person> ;
+         owl:disjointWith foaf:Person ;
          <http://schema.org/description> "\"An umbrella term that includes assistive, adaptive, and rehabilitative devices for people with disabilities and also includes the process used in selecting, locating, and using them (Wikipedia.com)\"" ;
          rdfs:seeAlso "https://en.wikipedia.org/wiki/Assistive_technology"^^xsd:anyURI .
 
@@ -988,19 +1024,18 @@ icf:e1451 rdf:type owl:Class .
 
 
 ###  http://xmlns.com/foaf/0.1/Person
-<http://xmlns.com/foaf/0.1/Person> rdfs:subClassOf owl:Thing ,
-                                                   [ rdf:type owl:Restriction ;
-                                                     owl:onProperty :has_ability ;
-                                                     owl:someValuesFrom <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence>
-                                                   ] ,
-                                                   [ rdf:type owl:Restriction ;
-                                                     owl:onProperty :has_father ;
-                                                     owl:allValuesFrom icf:d7601
-                                                   ] ,
-                                                   [ rdf:type owl:Restriction ;
-                                                     owl:onProperty :has_mother ;
-                                                     owl:allValuesFrom icf:d7600
-                                                   ] .
+foaf:Person rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :has_ability ;
+                              owl:someValuesFrom <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence>
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :has_father ;
+                              owl:allValuesFrom icf:d7601
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :has_mother ;
+                              owl:allValuesFrom icf:d7600
+                            ] .
 
 
 #################################################################
@@ -3511,7 +3546,7 @@ icf:e1451 rdf:type owl:Class .
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#John_Doe
 :John_Doe rdf:type owl:NamedIndividual ,
-                   <http://xmlns.com/foaf/0.1/Person> ;
+                   foaf:Person ;
           :has_father :Gary_Doe ;
           :has_mental_illness :Anxiety ,
                               :Major_Depression ;
@@ -3927,8 +3962,8 @@ pmr:Process rdfs:label "Rehabilitation" .
 <http://schema.org/expectedPrognosis> rdfs:label "expectedPrognosis" ;
                                       <http://schema.org/domainIncludes> <http://schema.org/MedicalCondition> ;
                                       <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
-                                      <http://schema.org/isPartOf> <http://health-lifesci.schema.org> ;
-                                      rdfs:comment "The likely outcome in either the short term or long term of the medical condition." .
+                                      rdfs:comment "The likely outcome in either the short term or long term of the medical condition." ;
+                                      <http://schema.org/isPartOf> <http://health-lifesci.schema.org> .
 
 
 <http://schema.org/familyName> rdfs:label "familyName" ;
@@ -3984,8 +4019,8 @@ pmr:Process rdfs:label "Rehabilitation" .
 <http://schema.org/healthCondition> <http://schema.org/rangeIncludes> <http://schema.org/MedicalCondition> .
 
 
-<http://schema.org/height> <http://schema.org/domainIncludes> <http://schema.org/MediaObject> ,
-                                                              <http://schema.org/VisualArtwork> ;
+<http://schema.org/height> <http://schema.org/domainIncludes> <http://schema.org/VisualArtwork> ,
+                                                              <http://schema.org/MediaObject> ;
                            <http://schema.org/rangeIncludes> <http://schema.org/Distance> ;
                            rdfs:label "height" ;
                            <http://schema.org/rangeIncludes> <http://schema.org/QuantitativeValue> ;
@@ -4216,9 +4251,9 @@ pmr:Process rdfs:label "Rehabilitation" .
                                       <http://schema.org/rangeIncludes> <http://schema.org/MedicalSpecialty> .
 
 
-<http://schema.org/remainingAttendeeCapacity> <http://schema.org/rangeIncludes> <http://schema.org/Integer> ;
-                                              rdfs:label "remainingAttendeeCapacity" ;
+<http://schema.org/remainingAttendeeCapacity> rdfs:label "remainingAttendeeCapacity" ;
                                               rdfs:comment "The number of attendee places for an event that remain unallocated." ;
+                                              <http://schema.org/rangeIncludes> <http://schema.org/Integer> ;
                                               <http://schema.org/domainIncludes> <http://schema.org/Event> .
 
 
