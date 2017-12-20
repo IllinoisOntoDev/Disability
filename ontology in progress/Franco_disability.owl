@@ -1,8 +1,8 @@
 @prefix : <http://purl.org/lis590OD/Fall17/DisabilityOnt#> .
-@prefix icf: <http://who.int/icf#> .
+@prefix icf: <http://purl.org/lis590OD/Fall17/icf> .
 @prefix ont: <http://purl.org/lis590OD/Fall17/DisabilityOnt/1.0.0#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix pmr: <http://purl.bioontology.org/ontology/PMR.owl#> .
+@prefix pmr: <http://purl.org/lis590OD/Fall17/PMR> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -13,7 +13,8 @@
 
 <http://purl.org/lis590OD/Fall17/DisabilityOnt> rdf:type owl:Ontology ;
                                                  owl:versionIRI <http://purl.org/lis590OD/Fall17/DisabilityOnt/1.0.0> ;
-                                                 owl:imports <http://purl.bioontology.org/ontology/PMR.owl> ,
+                                                 owl:imports <http://who.int/icf> ,
+                                                             <http://purl.bioontology.org/ontology/PMR.owl> ,
                                                              foaf: ,
                                                              <http://purl.org/lis590OD/Fall17/ExOffenderEmp> ;
                                                  rdfs:comment "The mission of this ontology is to improve Champaign County’s system of care for persons with disabilities so as to avoid incarceration, reduce recidivism, provide rehabilitation, and promote a humanistic view of disability."@en .
@@ -161,26 +162,26 @@ rdf:type rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.bioontology.org/ontology/PMR.owl#has_occupation
-pmr:has_occupation rdfs:domain foaf:Person .
+<http://purl.bioontology.org/ontology/PMR.owl#has_occupation> rdfs:domain foaf:Person .
 
 
 ###  http://purl.bioontology.org/ontology/PMR.owl#is_assisted_by
-pmr:is_assisted_by rdf:type owl:ObjectProperty ;
-                   owl:inverseOf :assists ;
-                   rdf:type owl:TransitiveProperty ;
-                   rdfs:domain foaf:Person ;
-                   rdfs:range icf:e115 .
+<http://purl.bioontology.org/ontology/PMR.owl#is_assisted_by> rdf:type owl:ObjectProperty ;
+                                                              owl:inverseOf :assists ;
+                                                              rdf:type owl:TransitiveProperty ;
+                                                              rdfs:domain foaf:Person ;
+                                                              rdfs:range <http://who.int/icf#e115> .
 
 
 ###  http://purl.bioontology.org/ontology/PMR.owl#is_related_to
-pmr:is_related_to rdfs:domain foaf:Person ;
-                  rdfs:range icf:d760 .
+<http://purl.bioontology.org/ontology/PMR.owl#is_related_to> rdfs:domain foaf:Person ;
+                                                             rdfs:range <http://who.int/icf#d760> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#assists
 :assists rdf:type owl:ObjectProperty ,
                   owl:TransitiveProperty ;
-         rdfs:domain icf:e115 ;
+         rdfs:domain <http://who.int/icf#e115> ;
          rdfs:range foaf:Person .
 
 
@@ -189,7 +190,7 @@ pmr:is_related_to rdfs:domain foaf:Person ;
         owl:inverseOf :is_enjoyed_by ;
         rdf:type owl:TransitiveProperty ;
         rdfs:domain foaf:Person ;
-        rdfs:range icf:d920 .
+        rdfs:range <http://who.int/icf#d920> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_ability
@@ -203,7 +204,7 @@ pmr:is_related_to rdfs:domain foaf:Person ;
 :has_basic_knowledge rdf:type owl:ObjectProperty ;
                      owl:inverseOf :is_basic_knowledge_of ;
                      rdfs:domain foaf:Person ;
-                     rdfs:range icf:d130-d159 .
+                     rdfs:range <http://who.int/icf#d130-d159> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_disability
@@ -221,7 +222,7 @@ pmr:is_related_to rdfs:domain foaf:Person ;
 :has_father rdf:type owl:ObjectProperty ;
             owl:inverseOf :is_father_of ;
             rdfs:domain foaf:Person ;
-            rdfs:range icf:d7601 .
+            rdfs:range <http://who.int/icf#d7601> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_medical_history
@@ -244,14 +245,14 @@ pmr:is_related_to rdfs:domain foaf:Person ;
             owl:inverseOf :is_mother_of ;
             rdf:type owl:FunctionalProperty ;
             rdfs:domain foaf:Person ;
-            rdfs:range icf:d7600 .
+            rdfs:range <http://who.int/icf#d7600> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_part-time_employment
 :has_part-time_employment rdf:type owl:ObjectProperty ;
                           owl:inverseOf :is_part-time_employment_of ;
                           rdfs:domain foaf:Person ;
-                          rdfs:range icf:d8501 .
+                          rdfs:range <http://who.int/icf#d8501> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_pet
@@ -272,12 +273,12 @@ pmr:is_related_to rdfs:domain foaf:Person ;
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#has_spouse
 :has_spouse rdf:type owl:ObjectProperty ;
             rdfs:domain foaf:Person ;
-            rdfs:range icf:d7701 .
+            rdfs:range <http://who.int/icf#d7701> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#highest_education_in
 :highest_education_in rdf:type owl:ObjectProperty ;
-                      rdfs:range icf:d810-d839 .
+                      rdfs:range <http://who.int/icf#d810-d839> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_ability_of
@@ -297,7 +298,7 @@ pmr:is_related_to rdfs:domain foaf:Person ;
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_basic_knowledge_of
 :is_basic_knowledge_of rdf:type owl:ObjectProperty ;
-                       rdfs:domain icf:d130-d159 ;
+                       rdfs:domain <http://who.int/icf#d130-d159> ;
                        rdfs:range foaf:Person .
 
 
@@ -317,13 +318,13 @@ pmr:is_related_to rdfs:domain foaf:Person ;
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_enjoyed_by
 :is_enjoyed_by rdf:type owl:ObjectProperty ,
                         owl:TransitiveProperty ;
-               rdfs:domain icf:d920 ;
+               rdfs:domain <http://who.int/icf#d920> ;
                rdfs:range foaf:Person .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_father_of
 :is_father_of rdf:type owl:ObjectProperty ;
-              rdfs:domain icf:d7601 ;
+              rdfs:domain <http://who.int/icf#d7601> ;
               rdfs:range foaf:Person .
 
 
@@ -341,13 +342,13 @@ pmr:is_related_to rdfs:domain foaf:Person ;
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_mother_of
 :is_mother_of rdf:type owl:ObjectProperty ;
-              rdfs:domain icf:d7600 ;
+              rdfs:domain <http://who.int/icf#d7600> ;
               rdfs:range foaf:Person .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_part-time_employment_of
 :is_part-time_employment_of rdf:type owl:ObjectProperty ;
-                            rdfs:domain icf:d8501 ;
+                            rdfs:domain <http://who.int/icf#d8501> ;
                             rdfs:range foaf:Person .
 
 
@@ -355,13 +356,13 @@ pmr:is_related_to rdfs:domain foaf:Person ;
 :is_prescribed rdf:type owl:ObjectProperty ,
                         owl:TransitiveProperty ;
                rdfs:domain foaf:Person ;
-               rdfs:range pmr:Substance .
+               rdfs:range <http://purl.bioontology.org/ontology/PMR.owl#Substance> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_prescription_of
 :is_prescription_of rdf:type owl:ObjectProperty ,
                              owl:TransitiveProperty ;
-                    rdfs:domain pmr:Substance ;
+                    rdfs:domain <http://purl.bioontology.org/ontology/PMR.owl#Substance> ;
                     rdfs:range foaf:Person .
 
 
@@ -372,7 +373,7 @@ pmr:is_related_to rdfs:domain foaf:Person ;
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_seeking
 :is_seeking rdf:type owl:ObjectProperty ,
                      owl:TransitiveProperty ;
-            rdfs:range pmr:Occupation .
+            rdfs:range <http://purl.bioontology.org/ontology/PMR.owl#Occupation> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_skill_of
@@ -384,25 +385,25 @@ pmr:is_related_to rdfs:domain foaf:Person ;
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_starting
 :is_starting rdf:type owl:ObjectProperty ;
-             rdfs:range pmr:Occupation ,
+             rdfs:range <http://purl.bioontology.org/ontology/PMR.owl#Occupation> ,
                         :_other_unspecified ,
-                        icf:d840 ,
-                        icf:d8500 ,
-                        icf:d8501 ,
-                        icf:d8502 ,
-                        icf:d859 .
+                        <http://who.int/icf#d840> ,
+                        <http://who.int/icf#d8500> ,
+                        <http://who.int/icf#d8501> ,
+                        <http://who.int/icf#d8502> ,
+                        <http://who.int/icf#d859> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#is_terminating
 :is_terminating rdf:type owl:ObjectProperty ,
                          owl:TransitiveProperty ;
-                rdfs:range pmr:Occupation .
+                rdfs:range <http://purl.bioontology.org/ontology/PMR.owl#Occupation> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#practices
 :practices rdf:type owl:ObjectProperty ;
            rdfs:domain foaf:Person ;
-           rdfs:range icf:d930 .
+           rdfs:range <http://who.int/icf#d930> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#speaks
@@ -414,19 +415,19 @@ pmr:is_related_to rdfs:domain foaf:Person ;
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#uses
 :uses rdf:type owl:ObjectProperty ;
-      rdfs:range icf:e115 ,
-                 icf:e1151 ,
-                 icf:e1251 ,
-                 icf:e1301 ,
-                 icf:e1351 ,
-                 icf:e1401 ,
-                 icf:e1451 .
+      rdfs:range <http://who.int/icf#e115> ,
+                 <http://who.int/icf#e1151> ,
+                 <http://who.int/icf#e1251> ,
+                 <http://who.int/icf#e1301> ,
+                 <http://who.int/icf#e1351> ,
+                 <http://who.int/icf#e1401> ,
+                 <http://who.int/icf#e1451> .
 
 
 ###  http://xmlns.com/foaf/0.1/knows
 foaf:knows rdf:type owl:ObjectProperty ,
                     owl:SymmetricProperty ;
-           rdfs:range icf:d7 .
+           rdfs:range <http://who.int/icf#d7> .
 
 
 #################################################################
@@ -470,10 +471,10 @@ foaf:title rdfs:domain foaf:Person .
 
 ###  http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence
 <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> rdf:type owl:Class ;
-                                                               owl:disjointWith pmr:Occupation ,
+                                                               owl:disjointWith <http://purl.bioontology.org/ontology/PMR.owl#Occupation> ,
                                                                                 <http://schema.org/Event> ,
-                                                                                icf:d810-d839 ,
-                                                                                icf:e115 ,
+                                                                                <http://who.int/icf#d810-d839> ,
+                                                                                <http://who.int/icf#e115> ,
                                                                                 foaf:Person ;
                                                                <http://schema.org/description> "\"Possession of the means or skill to do something, talent, skill, or proficiency in a particular area (oxfordditionaries.com)\"" ;
                                                                rdfs:label "Ability" .
@@ -493,7 +494,7 @@ foaf:title rdfs:domain foaf:Person .
 ###  http://mccarthy.dia.fi.upm.es/Language_Ontology#Language_Proficiency
 <http://mccarthy.dia.fi.upm.es/Language_Ontology#Language_Proficiency> rdf:type owl:Class ;
                                                                        rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
-                                                                       pmr:description "\"The ability of an individual to speak or perform in a language (Wikipedia.com)\"" ;
+                                                                       <http://purl.bioontology.org/ontology/PMR.owl#description> "\"The ability of an individual to speak or perform in a language (Wikipedia.com)\"" ;
                                                                        rdfs:label "Language Proficiency" ;
                                                                        rdfs:seeAlso "https://en.wikipedia.org/wiki/Language_proficiency"^^xsd:anyURI .
 
@@ -672,7 +673,7 @@ foaf:title rdfs:domain foaf:Person .
 ###  http://mccarthy.dia.fi.upm.es/Skill_Ontology#Skill
 <http://mccarthy.dia.fi.upm.es/Skill_Ontology#Skill> rdf:type owl:Class ;
                                                      rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
-                                                     pmr:description "\"The ability to use one's knowledge effectively and readily in execution or performance (Merriam-Webster)\"" ;
+                                                     <http://purl.bioontology.org/ontology/PMR.owl#description> "\"The ability to use one's knowledge effectively and readily in execution or performance (Merriam-Webster)\"" ;
                                                      rdfs:label "Skill" .
 
 
@@ -706,37 +707,37 @@ foaf:title rdfs:domain foaf:Person .
 
 
 ###  http://purl.bioontology.org/ontology/PMR.owl#Occupation
-pmr:Occupation rdf:type owl:Class ;
-               owl:disjointWith <http://schema.org/Event> ,
-                                icf:d810-d839 ,
-                                icf:e115 ,
-                                foaf:Person ;
-               <http://schema.org/description> "\"An act or instance of employing someone or something. 2. the state of being employed; employ; service: to begin or terminate employment. 3. an occupation by which a person earns a living; work; business (dictionary.com)\"" ;
-               rdfs:label "Employment" .
+<http://purl.bioontology.org/ontology/PMR.owl#Occupation> rdf:type owl:Class ;
+                                                          owl:disjointWith <http://schema.org/Event> ,
+                                                                           <http://who.int/icf#d810-d839> ,
+                                                                           <http://who.int/icf#e115> ,
+                                                                           foaf:Person ;
+                                                          <http://schema.org/description> "\"An act or instance of employing someone or something. 2. the state of being employed; employ; service: to begin or terminate employment. 3. an occupation by which a person earns a living; work; business (dictionary.com)\"" ;
+                                                          rdfs:label "Employment" .
 
 
 ###  http://purl.bioontology.org/ontology/PMR.owl#Substance
-pmr:Substance rdf:type owl:Class ;
-              rdfs:subClassOf <http://schema.org/Event> ;
-              rdfs:label "Medication" .
+<http://purl.bioontology.org/ontology/PMR.owl#Substance> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://schema.org/Event> ;
+                                                         rdfs:label "Medication" .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Daughter
 :Daughter rdf:type owl:Class ;
-          rdfs:subClassOf icf:d760 .
+          rdfs:subClassOf <http://who.int/icf#d760> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Disorder
 :Disorder rdf:type owl:Class ;
           rdfs:subClassOf <http://schema.org/MedicalCondition> ;
-          pmr:description "\"Physical or mental impairment that substantially limits one or more major life activity (ADA)\"" ;
+          <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Physical or mental impairment that substantially limits one or more major life activity (ADA)\"" ;
           rdfs:label "Disability" .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Knowledge
 :Knowledge rdf:type owl:Class ;
            rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
-           pmr:description "\"Facts, information, and skills acquired through experience or education; the theoretical or practical understanding of a subject (oxforddictionaries)\"" ;
+           <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Facts, information, and skills acquired through experience or education; the theoretical or practical understanding of a subject (oxforddictionaries)\"" ;
            rdfs:label "Knowledge" ;
            rdfs:seeAlso "https://en.wikipedia.org/wiki/Knowledge"^^xsd:anyURI .
 
@@ -744,7 +745,7 @@ pmr:Substance rdf:type owl:Class ;
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Mental_disorder
 :Mental_disorder rdf:type owl:Class ;
                  rdfs:subClassOf :Disorder ;
-                 pmr:description "\"Behavioral or mental pattern that may cause suffering or a poor ability to function in life (Wikipedia.com)\"" ;
+                 <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Behavioral or mental pattern that may cause suffering or a poor ability to function in life (Wikipedia.com)\"" ;
                  rdfs:label "Mental illness" .
 
 
@@ -776,12 +777,12 @@ pmr:Substance rdf:type owl:Class ;
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Son
 :Son rdf:type owl:Class ;
-     rdfs:subClassOf icf:d760 .
+     rdfs:subClassOf <http://who.int/icf#d760> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#_other_specified_and_unspecified
 :_other_specified_and_unspecified rdf:type owl:Class ;
-                                  rdfs:subClassOf icf:d410-d429 ;
+                                  rdfs:subClassOf <http://who.int/icf#d410-d429> ;
                                   rdfs:label "Change and maintain body position, other unspecified" .
 
 
@@ -793,7 +794,7 @@ pmr:Substance rdf:type owl:Class ;
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt/Current_Employment
 <http://purl.org/lis590OD/Fall17/DisabilityOnt/Current_Employment> rdf:type owl:Class ;
-                                                                   rdfs:subClassOf pmr:Occupation ;
+                                                                   rdfs:subClassOf <http://purl.bioontology.org/ontology/PMR.owl#Occupation> ;
                                                                    rdfs:label "Current employment" .
 
 
@@ -802,22 +803,22 @@ exoffenderemp:Degree_Prisoner rdfs:subClassOf exoffenderemp:Prisoner .
 
 
 ###  http://purl.org/lis590OD/Fall17/ExOffenderEmp#Education_Field
-exoffenderemp:Education_Field rdfs:subClassOf icf:d810-d839 ;
+exoffenderemp:Education_Field rdfs:subClassOf <http://who.int/icf#d810-d839> ;
                               rdfs:label "Education field" .
 
 
 ###  http://purl.org/lis590OD/Fall17/ExOffenderEmp#Education_Level
-exoffenderemp:Education_Level rdfs:subClassOf icf:d810-d839 ;
+exoffenderemp:Education_Level rdfs:subClassOf <http://who.int/icf#d810-d839> ;
                               rdfs:label "Education level" .
 
 
 ###  http://purl.org/lis590OD/Fall17/ExOffenderEmp#Employment_Agency
-exoffenderemp:Employment_Agency rdfs:subClassOf pmr:Occupation ;
+exoffenderemp:Employment_Agency rdfs:subClassOf <http://purl.bioontology.org/ontology/PMR.owl#Occupation> ;
                                 rdfs:label "Employment agency" .
 
 
 ###  http://purl.org/lis590OD/Fall17/ExOffenderEmp#Employment_Opportunity
-exoffenderemp:Employment_Opportunity rdfs:subClassOf pmr:Occupation ;
+exoffenderemp:Employment_Opportunity rdfs:subClassOf <http://purl.bioontology.org/ontology/PMR.owl#Occupation> ;
                                      rdfs:label "Employment opportunity" .
 
 
@@ -827,10 +828,10 @@ exoffenderemp:Prisoner rdfs:subClassOf foaf:Person .
 
 ###  http://schema.org/Event
 <http://schema.org/Event> rdf:type owl:Class ;
-                          owl:disjointWith icf:d810-d839 ,
-                                           icf:e115 ,
+                          owl:disjointWith <http://who.int/icf#d810-d839> ,
+                                           <http://who.int/icf#e115> ,
                                            foaf:Person ;
-                          pmr:description "\"A medical history is a collection of information about a patient which includes current medical data, the patient's past history of medical issues, the patient's family history, and relevant health information which can help a doctor or care provider tailor diagnosis and treatment to the patient\"" ;
+                          <http://purl.bioontology.org/ontology/PMR.owl#description> "\"A medical history is a collection of information about a patient which includes current medical data, the patient's past history of medical issues, the patient's family history, and relevant health information which can help a doctor or care provider tailor diagnosis and treatment to the patient\"" ;
                           rdfs:label "Medical History" .
 
 
@@ -843,226 +844,184 @@ exoffenderemp:Prisoner rdfs:subClassOf foaf:Person .
 
 
 ###  http://who.int/icf#d130-d159
-icf:d130-d159 rdf:type owl:Class ;
-              rdfs:subClassOf :Knowledge .
+<http://who.int/icf#d130-d159> rdf:type owl:Class ;
+                               rdfs:subClassOf :Knowledge .
 
 
 ###  http://who.int/icf#d2
-icf:d2 rdf:type owl:Class ;
-       rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
-       pmr:description "\"A piece of work to be done, especially one done regularly (Cambridge Dictionary)\"" .
+<http://who.int/icf#d2> rdf:type owl:Class ;
+                        rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
+                        <http://purl.bioontology.org/ontology/PMR.owl#description> "\"A piece of work to be done, especially one done regularly (Cambridge Dictionary)\"" .
 
 
 ###  http://who.int/icf#d3
-icf:d3 rdf:type owl:Class ;
-       rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
-       pmr:description "\"The act of conveying intended meanings from one entity or group to another through the use of mutually understood signs and semiotic rules (Wikipedia.com)\"" ;
-       rdfs:seeAlso "https://en.wikipedia.org/wiki/Communication"^^xsd:anyURI .
+<http://who.int/icf#d3> rdf:type owl:Class ;
+                        rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
+                        <http://purl.bioontology.org/ontology/PMR.owl#description> "\"The act of conveying intended meanings from one entity or group to another through the use of mutually understood signs and semiotic rules (Wikipedia.com)\"" ;
+                        rdfs:seeAlso "https://en.wikipedia.org/wiki/Communication"^^xsd:anyURI .
 
 
 ###  http://who.int/icf#d330-d349
-icf:d330-d349 rdf:type owl:Class ;
-              owl:disjointWith icf:d335 ,
-                               icf:d710-d729 .
+<http://who.int/icf#d330-d349> owl:disjointWith <http://who.int/icf#d335> ,
+                                                <http://who.int/icf#d710-d729> .
 
 
 ###  http://who.int/icf#d335
-icf:d335 rdf:type owl:Class ;
-         owl:disjointWith icf:d710-d729 .
+<http://who.int/icf#d335> owl:disjointWith <http://who.int/icf#d710-d729> .
 
 
 ###  http://who.int/icf#d4
-icf:d4 rdf:type owl:Class ;
-       rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
-       <http://schema.org/description> "\"The ability to move or be moved freely and easily (dictionary.com)\"" .
+<http://who.int/icf#d4> rdf:type owl:Class ;
+                        rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
+                        <http://schema.org/description> "\"The ability to move or be moved freely and easily (dictionary.com)\"" .
 
 
 ###  http://who.int/icf#d410-d429
-icf:d410-d429 rdf:type owl:Class .
+<http://who.int/icf#d410-d429> rdf:type owl:Class .
 
 
 ###  http://who.int/icf#d5
-icf:d5 rdf:type owl:Class ;
-       rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
-       <http://schema.org/description> "\"Self care is care provided “for you, by you.” It's about identifying your own needs and taking steps to meet them (fgwrc.ca)\"" ;
-       rdfs:seeAlso "https://en.wikipedia.org/wiki/Self-care"^^xsd:anyURI .
+<http://who.int/icf#d5> rdf:type owl:Class ;
+                        rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
+                        <http://schema.org/description> "\"Self care is care provided “for you, by you.” It's about identifying your own needs and taking steps to meet them (fgwrc.ca)\"" ;
+                        rdfs:seeAlso "https://en.wikipedia.org/wiki/Self-care"^^xsd:anyURI .
 
 
 ###  http://who.int/icf#d540
-icf:d540 rdf:type owl:Class ;
-         pmr:description "\"Put on one's clothes.\"" .
+<http://who.int/icf#d540> <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Put on one's clothes.\"" .
 
 
 ###  http://who.int/icf#d5400
-icf:d5400 rdf:type owl:Class ;
-          rdfs:subClassOf icf:d540 .
+<http://who.int/icf#d5400> rdfs:subClassOf <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d5401
-icf:d5401 rdf:type owl:Class ;
-          rdfs:subClassOf icf:d540 .
+<http://who.int/icf#d5401> rdfs:subClassOf <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d5402
-icf:d5402 rdf:type owl:Class ;
-          rdfs:subClassOf icf:d540 .
+<http://who.int/icf#d5402> rdfs:subClassOf <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d5403
-icf:d5403 rdf:type owl:Class ;
-          rdfs:subClassOf icf:d540 .
+<http://who.int/icf#d5403> rdfs:subClassOf <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d5404
-icf:d5404 rdf:type owl:Class ;
-          rdfs:subClassOf icf:d540 .
-
-
-###  http://who.int/icf#d630-d649
-icf:d630-d649 rdf:type owl:Class .
+<http://who.int/icf#d5404> rdfs:subClassOf <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d7
-icf:d7 rdf:type owl:Class ;
-       rdfs:subClassOf icf:d8 .
+<http://who.int/icf#d7> rdf:type owl:Class ;
+                        rdfs:subClassOf <http://who.int/icf#d8> .
 
 
 ###  http://who.int/icf#d710-d729
-icf:d710-d729 rdf:type owl:Class ;
-              rdfs:subClassOf icf:d3 .
+<http://who.int/icf#d710-d729> rdf:type owl:Class ;
+                               rdfs:subClassOf <http://who.int/icf#d3> .
 
 
 ###  http://who.int/icf#d740
-icf:d740 rdf:type owl:Class ;
-         rdfs:subClassOf icf:d7 .
+<http://who.int/icf#d740> rdf:type owl:Class ;
+                          rdfs:subClassOf <http://who.int/icf#d7> .
 
 
 ###  http://who.int/icf#d750
-icf:d750 rdf:type owl:Class ;
-         rdfs:subClassOf icf:d7 .
+<http://who.int/icf#d750> rdf:type owl:Class ;
+                          rdfs:subClassOf <http://who.int/icf#d7> .
 
 
 ###  http://who.int/icf#d760
-icf:d760 rdf:type owl:Class ;
-         rdfs:subClassOf icf:d7 .
-
-
-###  http://who.int/icf#d7600
-icf:d7600 rdf:type owl:Class .
-
-
-###  http://who.int/icf#d7601
-icf:d7601 rdf:type owl:Class .
+<http://who.int/icf#d760> rdf:type owl:Class ;
+                          rdfs:subClassOf <http://who.int/icf#d7> .
 
 
 ###  http://who.int/icf#d770
-icf:d770 rdf:type owl:Class ;
-         rdfs:subClassOf icf:d7 .
-
-
-###  http://who.int/icf#d7701
-icf:d7701 rdf:type owl:Class .
+<http://who.int/icf#d770> rdf:type owl:Class ;
+                          rdfs:subClassOf <http://who.int/icf#d7> .
 
 
 ###  http://who.int/icf#d8
-icf:d8 rdf:type owl:Class ;
-       <http://schema.org/description> "\"Portion of the medical history (and thus the admission note) addressing familial, occupational, and recreational aspects of the patient's personal life that have the potential to be clinically significant (Wikipedia.com)\"" ;
-       rdfs:seeAlso "https://en.wikipedia.org/wiki/Social_history_(medicine)"^^xsd:anyURI .
+<http://who.int/icf#d8> rdf:type owl:Class ;
+                        <http://schema.org/description> "\"Portion of the medical history (and thus the admission note) addressing familial, occupational, and recreational aspects of the patient's personal life that have the potential to be clinically significant (Wikipedia.com)\"" ;
+                        rdfs:seeAlso "https://en.wikipedia.org/wiki/Social_history_(medicine)"^^xsd:anyURI .
 
 
 ###  http://who.int/icf#d810-d839
-icf:d810-d839 rdf:type owl:Class ;
-              owl:disjointWith icf:e115 ,
-                               foaf:Person ;
-              <http://schema.org/description> "\"The process of receiving or giving systematic instruction, especially at a school or university (oxforddictionaries.com)\"" .
+<http://who.int/icf#d810-d839> rdf:type owl:Class ;
+                               owl:disjointWith <http://who.int/icf#e115> ,
+                                                foaf:Person ;
+                               <http://schema.org/description> "\"The process of receiving or giving systematic instruction, especially at a school or university (oxforddictionaries.com)\"" .
 
 
 ###  http://who.int/icf#d840
-icf:d840 rdf:type owl:Class .
+<http://who.int/icf#d840> rdf:type owl:Class .
 
 
 ###  http://who.int/icf#d8500
-icf:d8500 rdf:type owl:Class .
+<http://who.int/icf#d8500> rdf:type owl:Class .
 
 
 ###  http://who.int/icf#d8501
-icf:d8501 rdf:type owl:Class .
+<http://who.int/icf#d8501> rdf:type owl:Class .
 
 
 ###  http://who.int/icf#d8502
-icf:d8502 rdf:type owl:Class .
+<http://who.int/icf#d8502> rdf:type owl:Class .
 
 
 ###  http://who.int/icf#d859
-icf:d859 rdf:type owl:Class .
+<http://who.int/icf#d859> rdf:type owl:Class .
 
 
 ###  http://who.int/icf#d920
-icf:d920 rdf:type owl:Class .
-
-
-###  http://who.int/icf#d9201
-icf:d9201 rdf:type owl:Class .
+<http://who.int/icf#d920> rdf:type owl:Class .
 
 
 ###  http://who.int/icf#d930
-icf:d930 rdf:type owl:Class .
-
-
-###  http://who.int/icf#d9300
-icf:d9300 rdf:type owl:Class .
+<http://who.int/icf#d930> rdf:type owl:Class .
 
 
 ###  http://who.int/icf#e115
-icf:e115 rdf:type owl:Class ;
-         owl:disjointWith foaf:Person ;
-         <http://schema.org/description> "\"An umbrella term that includes assistive, adaptive, and rehabilitative devices for people with disabilities and also includes the process used in selecting, locating, and using them (Wikipedia.com)\"" ;
-         rdfs:seeAlso "https://en.wikipedia.org/wiki/Assistive_technology"^^xsd:anyURI .
+<http://who.int/icf#e115> rdf:type owl:Class ;
+                          owl:disjointWith foaf:Person ;
+                          <http://schema.org/description> "\"An umbrella term that includes assistive, adaptive, and rehabilitative devices for people with disabilities and also includes the process used in selecting, locating, and using them (Wikipedia.com)\"" ;
+                          rdfs:seeAlso "https://en.wikipedia.org/wiki/Assistive_technology"^^xsd:anyURI .
 
 
 ###  http://who.int/icf#e1151
-icf:e1151 rdf:type owl:Class ;
-          owl:disjointWith icf:e1251 .
+<http://who.int/icf#e1151> rdf:type owl:Class ;
+                           owl:disjointWith <http://who.int/icf#e1251> .
 
 
 ###  http://who.int/icf#e1201
-icf:e1201 rdf:type owl:Class ;
-          owl:disjointWith icf:e1251 .
+<http://who.int/icf#e1201> rdf:type owl:Class ;
+                           owl:disjointWith <http://who.int/icf#e1251> .
 
 
 ###  http://who.int/icf#e1251
-icf:e1251 rdf:type owl:Class ;
-          owl:disjointWith icf:e1301 ,
-                           icf:e1351 ,
-                           icf:e1401 ,
-                           icf:e1451 .
+<http://who.int/icf#e1251> rdf:type owl:Class ;
+                           owl:disjointWith <http://who.int/icf#e1301> ,
+                                            <http://who.int/icf#e1351> ,
+                                            <http://who.int/icf#e1401> ,
+                                            <http://who.int/icf#e1451> .
 
 
 ###  http://who.int/icf#e1301
-icf:e1301 rdf:type owl:Class .
+<http://who.int/icf#e1301> rdf:type owl:Class .
 
 
 ###  http://who.int/icf#e1351
-icf:e1351 rdf:type owl:Class .
+<http://who.int/icf#e1351> rdf:type owl:Class .
 
 
 ###  http://who.int/icf#e1401
-icf:e1401 rdf:type owl:Class .
+<http://who.int/icf#e1401> rdf:type owl:Class .
 
 
 ###  http://who.int/icf#e1451
-icf:e1451 rdf:type owl:Class .
+<http://who.int/icf#e1451> rdf:type owl:Class .
 
-
-###  http://who.int/icf#e350
-icf:e350 rdf:type owl:Class .
-
-
-###  http://www.w3.org/2002/07/owl#Thing
-owl:Thing owl:equivalentClass foaf:OnlineAccount .
-
-
-###  http://xmlns.com/foaf/0.1/OnlineAccount
 
 ###  http://xmlns.com/foaf/0.1/Person
 foaf:Person rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -1071,11 +1030,11 @@ foaf:Person rdfs:subClassOf [ rdf:type owl:Restriction ;
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :has_father ;
-                              owl:allValuesFrom icf:d7601
+                              owl:allValuesFrom <http://who.int/icf#d7601>
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :has_mother ;
-                              owl:allValuesFrom icf:d7600
+                              owl:allValuesFrom <http://who.int/icf#d7600>
                             ] .
 
 
@@ -3547,42 +3506,42 @@ foaf:Person rdfs:subClassOf [ rdf:type owl:Restriction ;
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Bella
 :Bella rdf:type owl:NamedIndividual ,
-                icf:e350 .
+                <http://who.int/icf#e350> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Calculate
 :Calculate rdf:type owl:NamedIndividual ,
-                    icf:d130-d159 .
+                    <http://who.int/icf#d130-d159> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Celexa
 :Celexa rdf:type owl:NamedIndividual ,
-                 pmr:Substance .
+                 <http://purl.bioontology.org/ontology/PMR.owl#Substance> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Christianity
 :Christianity rdf:type owl:NamedIndividual ,
-                       icf:d9300 .
+                       <http://who.int/icf#d9300> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Copy
 :Copy rdf:type owl:NamedIndividual ,
-               icf:d130-d159 .
+               <http://who.int/icf#d130-d159> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Focus
 :Focus rdf:type owl:NamedIndividual ,
-                icf:d130-d159 .
+                <http://who.int/icf#d130-d159> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Gary_Doe
 :Gary_Doe rdf:type owl:NamedIndividual ,
-                   icf:d7601 .
+                   <http://who.int/icf#d7601> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Golf
 :Golf rdf:type owl:NamedIndividual ,
-               icf:d9201 .
+               <http://who.int/icf#d9201> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#John_Doe
@@ -3601,7 +3560,7 @@ foaf:Person rdfs:subClassOf [ rdf:type owl:Restriction ;
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Listen
 :Listen rdf:type owl:NamedIndividual ,
-                 icf:d130-d159 .
+                 <http://who.int/icf#d130-d159> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Major_Depression
@@ -3611,144 +3570,132 @@ foaf:Person rdfs:subClassOf [ rdf:type owl:Restriction ;
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Make_decisions
 :Make_decisions rdf:type owl:NamedIndividual ,
-                         icf:d130-d159 .
+                         <http://who.int/icf#d130-d159> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Maryalice_Doe
 :Maryalice_Doe rdf:type owl:NamedIndividual ,
-                        icf:d7701 .
+                        <http://who.int/icf#d7701> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Read
 :Read rdf:type owl:NamedIndividual ,
-               icf:d130-d159 .
+               <http://who.int/icf#d130-d159> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Sales_Representative
 :Sales_Representative rdf:type owl:NamedIndividual ,
-                               icf:d8501 .
+                               <http://who.int/icf#d8501> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Susan_Doe
 :Susan_Doe rdf:type owl:NamedIndividual ,
-                    icf:d7600 .
+                    <http://who.int/icf#d7600> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Think_critically
 :Think_critically rdf:type owl:NamedIndividual ,
-                           icf:d130-d159 .
+                           <http://who.int/icf#d130-d159> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Write
 :Write rdf:type owl:NamedIndividual ,
-                icf:d130-d159 .
+                <http://who.int/icf#d130-d159> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#cane
 :cane rdf:type owl:NamedIndividual ,
-               icf:e1201 .
+               <http://who.int/icf#e1201> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#crutches
 :crutches rdf:type owl:NamedIndividual ,
-                   icf:e1201 .
+                   <http://who.int/icf#e1201> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#guide_dog
 :guide_dog rdf:type owl:NamedIndividual ,
-                    icf:e1201 .
+                    <http://who.int/icf#e1201> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#sign_language
 :sign_language rdf:type owl:NamedIndividual ,
-                        icf:e1251 .
+                        <http://who.int/icf#e1251> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#teletypewriter
 :teletypewriter rdf:type owl:NamedIndividual ,
-                         icf:e1251 .
+                         <http://who.int/icf#e1251> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#video_relay_service
 :video_relay_service rdf:type owl:NamedIndividual ,
-                              icf:e1251 .
+                              <http://who.int/icf#e1251> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#voice_prosthesis
 :voice_prosthesis rdf:type owl:NamedIndividual ,
-                           icf:e1251 .
+                           <http://who.int/icf#e1251> .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#wheelchair
 :wheelchair rdf:type owl:NamedIndividual ,
-                     icf:e1201 .
+                     <http://who.int/icf#e1201> .
 
 
 ###  http://who.int/icf#a1960_0b0e53f9_fed2_4335_b57c_17b6316589fc
-icf:a1960_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type owl:NamedIndividual ,
-                                                        icf:d630-d649 .
+<http://who.int/icf#a1960_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type <http://who.int/icf#d630-d649> .
 
 
 ###  http://who.int/icf#a1962_0b0e53f9_fed2_4335_b57c_17b6316589fc
-icf:a1962_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type owl:NamedIndividual ,
-                                                        icf:d630-d649 .
+<http://who.int/icf#a1962_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type <http://who.int/icf#d630-d649> .
 
 
 ###  http://who.int/icf#a2067_0b0e53f9_fed2_4335_b57c_17b6316589fc
-icf:a2067_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type owl:NamedIndividual ,
-                                                        icf:d630-d649 .
+<http://who.int/icf#a2067_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type <http://who.int/icf#d630-d649> .
 
 
 ###  http://who.int/icf#a2069_0b0e53f9_fed2_4335_b57c_17b6316589fc
-icf:a2069_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type owl:NamedIndividual ,
-                                                        icf:d630-d649 .
+<http://who.int/icf#a2069_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type <http://who.int/icf#d630-d649> .
 
 
 ###  http://who.int/icf#a2073_0b0e53f9_fed2_4335_b57c_17b6316589fc
-icf:a2073_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type owl:NamedIndividual ,
-                                                        icf:d630-d649 .
+<http://who.int/icf#a2073_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type <http://who.int/icf#d630-d649> .
 
 
 ###  http://who.int/icf#a2075_0b0e53f9_fed2_4335_b57c_17b6316589fc
-icf:a2075_0b0e53f9_fed2_4335_b57c_17b6316589fc rdf:type owl:NamedIndividual ,
-                                                        icf:d630-d649 .
+<http://who.int/icf#a2075_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type <http://who.int/icf#d630-d649> .
 
 
 ###  http://who.int/icf#d5400
-icf:d5400 rdf:type owl:NamedIndividual ,
-                   icf:d540 .
+<http://who.int/icf#d5400> rdf:type <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d5401
-icf:d5401 rdf:type owl:NamedIndividual ,
-                   icf:d540 .
+<http://who.int/icf#d5401> rdf:type <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d5402
-icf:d5402 rdf:type owl:NamedIndividual ,
-                   icf:d540 .
+<http://who.int/icf#d5402> rdf:type <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d5403
-icf:d5403 rdf:type owl:NamedIndividual ,
-                   icf:d540 .
+<http://who.int/icf#d5403> rdf:type <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d5404
-icf:d5404 rdf:type owl:NamedIndividual ,
-                   icf:d540 ,
-                   owl:Class ,
-                   icf:d5404 .
+<http://who.int/icf#d5404> rdf:type <http://who.int/icf#d540> ,
+                                    <http://who.int/icf#d5404> .
 
 
 #################################################################
 #    Annotations
 #################################################################
 
-pmr:Family_history_of_disorder rdfs:label "Family history" .
+<http://purl.bioontology.org/ontology/PMR.owl#Family_history_of_disorder> rdfs:label "Family history" .
 
 
-pmr:Process rdfs:label "Rehabilitation" .
+<http://purl.bioontology.org/ontology/PMR.owl#Process> rdfs:label "Rehabilitation" .
 
 
 <http://schema.org/about> rdfs:comment "The subject matter of the content." ;
@@ -4473,43 +4420,43 @@ pmr:Process rdfs:label "Rehabilitation" .
                              rdfs:comment "Organizations that the person works for." .
 
 
-icf:d210 pmr:description "\"Carrying out simple or complex and coordinated actions related to the mental and physical components of a single task, such as initiating a task, organizing time, space and materials for a task, pacing task performance, and carrying out, completing, and sustaining a task (ICF illustration library)\"" .
+<http://who.int/icf#d210> <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Carrying out simple or complex and coordinated actions related to the mental and physical components of a single task, such as initiating a task, organizing time, space and materials for a task, pacing task performance, and carrying out, completing, and sustaining a task (ICF illustration library)\"" .
 
 
-icf:d2100 pmr:description "\"Preparing, initiating and arranging the time and space required for a simple task; executing a simple task with a single major component, such as reading a book, writing a letter, or making one's bed (ICF illustration library)\"" .
+<http://who.int/icf#d2100> <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Preparing, initiating and arranging the time and space required for a simple task; executing a simple task with a single major component, such as reading a book, writing a letter, or making one's bed (ICF illustration library)\"" .
 
 
-icf:d2101 pmr:description "\"Preparing, initiating and arranging the time and space for a single complex task; executing a complex task with more than one component, which may be carried out in sequence or simultaneously, such as arranging the furniture in one's home or completing an assignment for school (ICF illustration library)\"" .
+<http://who.int/icf#d2101> <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Preparing, initiating and arranging the time and space for a single complex task; executing a complex task with more than one component, which may be carried out in sequence or simultaneously, such as arranging the furniture in one's home or completing an assignment for school (ICF illustration library)\"" .
 
 
-icf:d2103 pmr:description "\"Preparing, initiating and arranging the time and space for a single task, simple or complex; managing and executing a task with people who are involved in some or all steps of the task (ICF illustration library)\"" .
+<http://who.int/icf#d2103> <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Preparing, initiating and arranging the time and space for a single task, simple or complex; managing and executing a task with people who are involved in some or all steps of the task (ICF illustration library)\"" .
 
 
-icf:d220 pmr:description "\"Carrying out simple or complex and coordinated actions as components of multiple, integrated and complex tasks in sequence or simultaneously (ICF illustration library)\"" .
+<http://who.int/icf#d220> <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Carrying out simple or complex and coordinated actions as components of multiple, integrated and complex tasks in sequence or simultaneously (ICF illustration library)\"" .
 
 
-icf:d2200 pmr:description "\"Preparing, initiating and arranging the time and space needed for several tasks, and managing and executing several tasks, together or sequentially (ICF illustration library)\"" .
+<http://who.int/icf#d2200> <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Preparing, initiating and arranging the time and space needed for several tasks, and managing and executing several tasks, together or sequentially (ICF illustration library)\"" .
 
 
-icf:d2201 pmr:description "\"Completing several tasks, together or sequentially (ICF illustration library\"" .
+<http://who.int/icf#d2201> <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Completing several tasks, together or sequentially (ICF illustration library\"" .
 
 
-icf:d2203 pmr:description "\"Preparing, initiating and arranging the time and space for multiple tasks, and managing and executing several tasks together or sequentially with others who are involved in some or all steps of the multiple tasks (ICF illustration library)\"" .
+<http://who.int/icf#d2203> <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Preparing, initiating and arranging the time and space for multiple tasks, and managing and executing several tasks together or sequentially with others who are involved in some or all steps of the multiple tasks (ICF illustration library)\"" .
 
 
-icf:d230 pmr:description "\"Carrying out simple or complex and coordinated actions in order to plan, manage and complete the requirements of day-to-day procedures or duties, such as budgeting time and making plans for separate activities throughout the day (ICF illustration library)\"" .
+<http://who.int/icf#d230> <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Carrying out simple or complex and coordinated actions in order to plan, manage and complete the requirements of day-to-day procedures or duties, such as budgeting time and making plans for separate activities throughout the day (ICF illustration library)\"" .
 
 
-icf:d240 pmr:description "\"Carrying out simple or complex and coordinated actions to manage and control the psychological demands required to carry out tasks demanding significant responsibilities and involving stress, distraction, or crises, such as driving a vehicle during heavy traffic or taking care of many children (ICF illustration library)\"" .
+<http://who.int/icf#d240> <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Carrying out simple or complex and coordinated actions to manage and control the psychological demands required to carry out tasks demanding significant responsibilities and involving stress, distraction, or crises, such as driving a vehicle during heavy traffic or taking care of many children (ICF illustration library)\"" .
 
 
-icf:d2400 pmr:description "\"Carrying out simple or complex and coordinated actions to manage the duties of task performance and to assess the requirements of these duties (ICF illustration library)\"" .
+<http://who.int/icf#d2400> <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Carrying out simple or complex and coordinated actions to manage the duties of task performance and to assess the requirements of these duties (ICF illustration library)\"" .
 
 
-icf:d2401 pmr:description "\"Carrying out simple or complex and coordinated actions to cope with pressure, emergencies or stress associated with task performance (ICF illustration library)\"" .
+<http://who.int/icf#d2401> <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Carrying out simple or complex and coordinated actions to cope with pressure, emergencies or stress associated with task performance (ICF illustration library)\"" .
 
 
-icf:d2402 pmr:description "\"Carrying out simple or complex and coordinated actions to cope with decisive turning points in a situation or times of acute danger or difficulty (ICF illustration library)\"" .
+<http://who.int/icf#d2402> <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Carrying out simple or complex and coordinated actions to cope with decisive turning points in a situation or times of acute danger or difficulty (ICF illustration library)\"" .
 
 
 #################################################################
@@ -4522,8 +4469,8 @@ icf:d2402 pmr:description "\"Carrying out simple or complex and coordinated acti
 
 
 [ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( icf:d5401
-                        icf:d5403
+  owl:distinctMembers ( <http://who.int/icf#d5401>
+                        <http://who.int/icf#d5403>
                       )
 ] .
 

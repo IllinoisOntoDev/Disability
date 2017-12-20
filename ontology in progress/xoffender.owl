@@ -116,7 +116,8 @@
 
 ###  http://purl.org/lis590OD/Fall17/ExOffenderEmp#Degree_Prisoner
 :Degree_Prisoner rdf:type owl:Class ;
-                 rdfs:subClassOf [ rdf:type owl:Class ;
+                 rdfs:subClassOf :Prisoner ,
+                                 [ rdf:type owl:Class ;
                                    owl:unionOf ( [ rdf:type owl:Restriction ;
                                                    owl:onProperty :Had_Previous_Education_Level ;
                                                    owl:hasValue :Bachelor_Degree
