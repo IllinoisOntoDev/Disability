@@ -1,0 +1,158 @@
+@prefix : <http://purl.org/lis590od/Fall17/OrgRel#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix tl: <http://purl.org/NET/c4dm/timeline.owl#> .
+@prefix dbp: <http://dbpedia.org/resource/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsp: <http://www.owl-ontologies.com/2005/08/07/xsp.owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix wped: <http://en.wikipedia.org/wiki/> .
+@prefix dolce: <http://ontology.ip.rm.cnr.it/ontologies/DOLCE-Lite#> .
+@prefix event: <http://purl.org/NET/c4dm/event.owl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> .
+@base <http://purl.org/lis590od/Fall17/OrgRel> .
+
+<http://purl.org/lis590od/Fall17/OrgRel> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/NET/c4dm/event.owl#time
+event:time rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://www.w3.org/2006/time#hasTime> .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#agency
+:agency rdf:type owl:ObjectProperty ;
+        rdfs:range foaf:Organization ;
+        rdfs:comment "The organization or agency with which a person is involed in a time-bounded relationship"@en ;
+        rdfs:label "agency"@en .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#agencyRole
+:agencyRole rdf:type owl:ObjectProperty ;
+            rdfs:comment "The nature or type of relationship that an organization has with a person."@en ;
+            rdfs:label "agency role"@en .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#client
+:client rdf:type owl:ObjectProperty ;
+        rdfs:range foaf:Person ;
+        rdfs:comment "The person involved in a relationship with an organization or agency"@en .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#clientRole
+:clientRole rdf:type owl:ObjectProperty ;
+            rdfs:comment "The nature or type of relationship that a person has with an organization or agency"@en ;
+            rdfs:label "client role"@en .
+
+
+###  http://www.w3.org/2006/time#hasBeginning
+<http://www.w3.org/2006/time#hasBeginning> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/2006/time#hasEnd
+<http://www.w3.org/2006/time#hasEnd> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/2006/time#hasTime
+<http://www.w3.org/2006/time#hasTime> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.w3.org/2006/time#inXSDDateTimeStamp
+<http://www.w3.org/2006/time#inXSDDateTimeStamp> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://xmlns.com/foaf/0.1/Organization
+foaf:Organization rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+foaf:Person rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://purl.org/lis590od/Fall17/OrgRel#clinical_care_provider
+:clinical_care_provider rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#custodian
+:custodian rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#detainee
+:detainee rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#employee
+:employee rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#employer
+:employer rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#event1
+:event1 rdf:type owl:NamedIndividual ;
+        event:time :interval1 .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#event1End
+:event1End rdf:type owl:NamedIndividual ;
+           <http://www.w3.org/2006/time#inXSDDateTimeStamp> "2015-07-08T17:29:49-05:00"^^xsd:dateTime .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#event1Start
+:event1Start rdf:type owl:NamedIndividual ;
+             <http://www.w3.org/2006/time#inXSDDateTimeStamp> "2015-06-01T12:58:49-05:00"^^xsd:dateTime .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#interval1
+:interval1 rdf:type owl:NamedIndividual ;
+           <http://www.w3.org/2006/time#hasBeginning> :event1Start ;
+           <http://www.w3.org/2006/time#hasEnd> :event1End .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#patient
+:patient rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#service_provider
+:service_provider rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#service_recipient
+:service_recipient rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#student
+:student rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/lis590od/Fall17/OrgRel#vocational_trainer
+:vocational_trainer rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

@@ -13,20 +13,14 @@
 
 <http://purl.org/lis590OD/Fall17/DisabilityOnt> rdf:type owl:Ontology ;
                                                  owl:versionIRI <http://purl.org/lis590OD/Fall17/DisabilityOnt/1.0.0> ;
-                                                 owl:imports <http://who.int/icf> ,
-                                                             <http://purl.org/lis590od/Fall17/XOffenderEmp> ,
-                                                             <http://purl.org/lis590od/Fall17/OrgRel> ,
-                                                             <http://purl.bioontology.org/ontology/PMR.owl> ,
-                                                             foaf: ,
-                                                             <http://purl.org/lis590OD/Fall17/Employment_Ontology> ;
                                                  rdfs:comment "The mission of this ontology is to improve Champaign County’s system of care for persons with disabilities so as to avoid incarceration, reduce recidivism, provide rehabilitation, and promote a humanistic view of disability."@en .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
-###  http://purl.bioontology.org/ontology/PMR.owl#has_occupation
-<http://purl.bioontology.org/ontology/PMR.owl#has_occupation> rdf:type owl:AnnotationProperty .
+###  http://purl.bioontology.org/ontology/PMR.owl#description
+<http://purl.bioontology.org/ontology/PMR.owl#description> rdf:type owl:AnnotationProperty .
 
 
 ###  http://schema.org/additionalType
@@ -116,10 +110,6 @@
 rdf:type rdf:type owl:AnnotationProperty .
 
 
-###  http://xmlns.com/foaf/0.1/name
-foaf:name rdfs:domain foaf:Person .
-
-
 #################################################################
 #    Object Properties
 #################################################################
@@ -172,7 +162,8 @@ foaf:name rdfs:domain foaf:Person .
 
 
 ###  http://purl.bioontology.org/ontology/PMR.owl#has_occupation
-<http://purl.bioontology.org/ontology/PMR.owl#has_occupation> rdfs:domain foaf:Person .
+<http://purl.bioontology.org/ontology/PMR.owl#has_occupation> rdf:type owl:ObjectProperty ;
+                                                              rdfs:domain foaf:Person .
 
 
 ###  http://purl.bioontology.org/ontology/PMR.owl#is_assisted_by
@@ -184,7 +175,8 @@ foaf:name rdfs:domain foaf:Person .
 
 
 ###  http://purl.bioontology.org/ontology/PMR.owl#is_related_to
-<http://purl.bioontology.org/ontology/PMR.owl#is_related_to> rdfs:domain foaf:Person ;
+<http://purl.bioontology.org/ontology/PMR.owl#is_related_to> rdf:type owl:ObjectProperty ;
+                                                             rdfs:domain foaf:Person ;
                                                              rdfs:range <http://who.int/icf#d760> .
 
 
@@ -433,14 +425,14 @@ foaf:name rdfs:domain foaf:Person .
                  <http://who.int/icf#e1451> .
 
 
+###  http://purl.org/lis590OD/Fall17/ExOffenderEmp#Had_Previous_Education_Field
+<http://purl.org/lis590OD/Fall17/ExOffenderEmp#Had_Previous_Education_Field> rdf:type owl:ObjectProperty .
+
+
 ###  http://xmlns.com/foaf/0.1/knows
 foaf:knows rdf:type owl:ObjectProperty ,
                     owl:SymmetricProperty ;
            rdfs:range <http://who.int/icf#d7> .
-
-
-###  http://xmlns.com/foaf/0.1/nick
-foaf:nick rdfs:domain foaf:Person .
 
 
 #################################################################
@@ -458,19 +450,29 @@ foaf:nick rdfs:domain foaf:Person .
 
 
 ###  http://xmlns.com/foaf/0.1/familyName
-foaf:familyName rdf:type owl:FunctionalProperty .
+foaf:familyName rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty .
 
 
 ###  http://xmlns.com/foaf/0.1/gender
-foaf:gender rdfs:domain foaf:Person .
+foaf:gender rdf:type owl:DatatypeProperty ;
+            rdfs:domain foaf:Person .
 
 
 ###  http://xmlns.com/foaf/0.1/name
-foaf:name rdf:type owl:FunctionalProperty .
+foaf:name rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain foaf:Person .
+
+
+###  http://xmlns.com/foaf/0.1/nick
+foaf:nick rdf:type owl:DatatypeProperty ;
+          rdfs:domain foaf:Person .
 
 
 ###  http://xmlns.com/foaf/0.1/title
-foaf:title rdfs:domain foaf:Person .
+foaf:title rdf:type owl:DatatypeProperty ;
+           rdfs:domain foaf:Person .
 
 
 #################################################################
@@ -479,6 +481,11 @@ foaf:title rdfs:domain foaf:Person .
 
 ###  http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence
 <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> rdf:type owl:Class ;
+                                                               owl:disjointWith <http://purl.bioontology.org/ontology/PMR.owl#Occupation> ,
+                                                                                <http://schema.org/Event> ,
+                                                                                <http://who.int/icf#d810-d839> ,
+                                                                                <http://who.int/icf#e115> ,
+                                                                                foaf:Person ;
                                                                <http://schema.org/description> "\"Possession of the means or skill to do something, talent, skill, or proficiency in a particular area (oxfordditionaries.com)\"" ;
                                                                rdfs:label "Ability" .
 
@@ -711,6 +718,10 @@ foaf:title rdfs:domain foaf:Person .
 
 ###  http://purl.bioontology.org/ontology/PMR.owl#Occupation
 <http://purl.bioontology.org/ontology/PMR.owl#Occupation> rdf:type owl:Class ;
+                                                          owl:disjointWith <http://schema.org/Event> ,
+                                                                           <http://who.int/icf#d810-d839> ,
+                                                                           <http://who.int/icf#e115> ,
+                                                                           foaf:Person ;
                                                           <http://schema.org/description> "\"An act or instance of employing someone or something. 2. the state of being employed; employ; service: to begin or terminate employment. 3. an occupation by which a person earns a living; work; business (dictionary.com)\"" ;
                                                           rdfs:label "Employment" .
 
@@ -721,20 +732,9 @@ foaf:title rdfs:domain foaf:Person .
                                                          rdfs:label "Medication" .
 
 
-###  http://purl.org/NET/c4dm/event.owl#Event
-<http://purl.org/NET/c4dm/event.owl#Event> rdfs:subClassOf <http://purl.org/lis590OD/Fall17/DisabilityOnt/Unwanted_Terms> .
-
-
-###  http://purl.org/lis590OD/Fall17/CommunityTies#Client
-<http://purl.org/lis590OD/Fall17/CommunityTies#Client> rdfs:subClassOf <http://purl.org/lis590OD/Fall17/DisabilityOnt/Unwanted_Terms> .
-
-
 ###  http://purl.org/lis590OD/Fall17/CommunityTies#Employer
-<http://purl.org/lis590OD/Fall17/CommunityTies#Employer> rdfs:subClassOf foaf:Organization .
-
-
-###  http://purl.org/lis590OD/Fall17/CommunityTies#School
-<http://purl.org/lis590OD/Fall17/CommunityTies#School> rdfs:subClassOf <http://purl.org/lis590OD/Fall17/DisabilityOnt/Unwanted_Terms> .
+<http://purl.org/lis590OD/Fall17/CommunityTies#Employer> rdf:type owl:Class ;
+                                                         rdfs:subClassOf foaf:Organization .
 
 
 ###  http://purl.org/lis590OD/Fall17/DisabilityOnt#Daughter
@@ -813,13 +813,9 @@ foaf:title rdfs:domain foaf:Person .
                                                                    rdfs:label "Current employment" .
 
 
-###  http://purl.org/lis590OD/Fall17/DisabilityOnt/Unwanted_Terms
-<http://purl.org/lis590OD/Fall17/DisabilityOnt/Unwanted_Terms> rdf:type owl:Class ;
-                                                               rdfs:label "Unwanted Terms" .
-
-
 ###  http://purl.org/lis590OD/Fall17/Employment_Ontology#SelfEmployed
-<http://purl.org/lis590OD/Fall17/Employment_Ontology#SelfEmployed> owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
+<http://purl.org/lis590OD/Fall17/Employment_Ontology#SelfEmployed> rdf:type owl:Class ;
+                                                                   owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
                                                                                                                 owl:unionOf ( [ rdf:type owl:Restriction ;
                                                                                                                                 owl:onProperty :has_skill ;
                                                                                                                                 owl:someValuesFrom <http://mccarthy.dia.fi.upm.es/Skill_Ontology#ICT_Skill>
@@ -844,7 +840,8 @@ foaf:title rdfs:domain foaf:Person .
 
 
 ###  http://purl.org/lis590OD/Fall17/Employment_Ontology#WorkRelationship
-<http://purl.org/lis590OD/Fall17/Employment_Ontology#WorkRelationship> rdfs:subClassOf <http://purl.bioontology.org/ontology/PMR.owl#Occupation> .
+<http://purl.org/lis590OD/Fall17/Employment_Ontology#WorkRelationship> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf <http://purl.bioontology.org/ontology/PMR.owl#Occupation> .
 
 
 ###  http://purl.org/lis590OD/Fall17/ExOffenderEmp#Degree_Prisoner
@@ -869,29 +866,21 @@ foaf:title rdfs:domain foaf:Person .
                                                                        rdfs:label "Employment Opportunity" .
 
 
-###  http://purl.org/lis590OD/Fall17/ExOffenderEmp#Ex-offender_Employment_Reference
-<http://purl.org/lis590OD/Fall17/ExOffenderEmp#Ex-offender_Employment_Reference> rdfs:subClassOf <http://purl.org/lis590OD/Fall17/DisabilityOnt/Unwanted_Terms> .
-
-
-###  http://purl.org/lis590OD/Fall17/ExOffenderEmp#Occupation
-<http://purl.org/lis590OD/Fall17/ExOffenderEmp#Occupation> rdfs:subClassOf <http://purl.org/lis590OD/Fall17/DisabilityOnt/Unwanted_Terms> .
-
-
 ###  http://purl.org/lis590OD/Fall17/ExOffenderEmp#Prisoner
 <http://purl.org/lis590OD/Fall17/ExOffenderEmp#Prisoner> rdf:type owl:Class ;
                                                          rdfs:subClassOf foaf:Person .
 
 
 ###  http://purl.org/lis590OD/Fall17/JailProgramOnt#EducationProgram
-<http://purl.org/lis590OD/Fall17/JailProgramOnt#EducationProgram> rdfs:subClassOf <http://who.int/icf#d810-d839> .
-
-
-###  http://purl.org/lis590od/Fall17/OrgRel#agency
-<http://purl.org/lis590od/Fall17/OrgRel#agency> rdfs:subClassOf <http://purl.org/lis590OD/Fall17/DisabilityOnt/Unwanted_Terms> .
+<http://purl.org/lis590OD/Fall17/JailProgramOnt#EducationProgram> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://who.int/icf#d810-d839> .
 
 
 ###  http://schema.org/Event
 <http://schema.org/Event> rdf:type owl:Class ;
+                          owl:disjointWith <http://who.int/icf#d810-d839> ,
+                                           <http://who.int/icf#e115> ,
+                                           foaf:Person ;
                           <http://purl.bioontology.org/ontology/PMR.owl#description> "\"A medical history is a collection of information about a patient which includes current medical data, the patient's past history of medical issues, the patient's family history, and relevant health information which can help a doctor or care provider tailor diagnosis and treatment to the patient\"" ;
                           rdfs:label "Medical History" .
 
@@ -923,12 +912,14 @@ foaf:title rdfs:domain foaf:Person .
 
 
 ###  http://who.int/icf#d330-d349
-<http://who.int/icf#d330-d349> owl:disjointWith <http://who.int/icf#d335> ,
+<http://who.int/icf#d330-d349> rdf:type owl:Class ;
+                               owl:disjointWith <http://who.int/icf#d335> ,
                                                 <http://who.int/icf#d710-d729> .
 
 
 ###  http://who.int/icf#d335
-<http://who.int/icf#d335> owl:disjointWith <http://who.int/icf#d710-d729> .
+<http://who.int/icf#d335> rdf:type owl:Class ;
+                          owl:disjointWith <http://who.int/icf#d710-d729> .
 
 
 ###  http://who.int/icf#d4
@@ -941,6 +932,14 @@ foaf:title rdfs:domain foaf:Person .
 <http://who.int/icf#d410-d429> rdf:type owl:Class .
 
 
+###  http://who.int/icf#d4153
+<http://who.int/icf#d4153> rdf:type owl:Class .
+
+
+###  http://who.int/icf#d440
+<http://who.int/icf#d440> rdf:type owl:Class .
+
+
 ###  http://who.int/icf#d5
 <http://who.int/icf#d5> rdf:type owl:Class ;
                         rdfs:subClassOf <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence> ;
@@ -949,27 +948,37 @@ foaf:title rdfs:domain foaf:Person .
 
 
 ###  http://who.int/icf#d540
-<http://who.int/icf#d540> <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Put on one's clothes.\"" .
+<http://who.int/icf#d540> rdf:type owl:Class ;
+                          <http://purl.bioontology.org/ontology/PMR.owl#description> "\"Put on one's clothes.\"" .
 
 
 ###  http://who.int/icf#d5400
-<http://who.int/icf#d5400> rdfs:subClassOf <http://who.int/icf#d540> .
+<http://who.int/icf#d5400> rdf:type owl:Class ;
+                           rdfs:subClassOf <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d5401
-<http://who.int/icf#d5401> rdfs:subClassOf <http://who.int/icf#d540> .
+<http://who.int/icf#d5401> rdf:type owl:Class ;
+                           rdfs:subClassOf <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d5402
-<http://who.int/icf#d5402> rdfs:subClassOf <http://who.int/icf#d540> .
+<http://who.int/icf#d5402> rdf:type owl:Class ;
+                           rdfs:subClassOf <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d5403
-<http://who.int/icf#d5403> rdfs:subClassOf <http://who.int/icf#d540> .
+<http://who.int/icf#d5403> rdf:type owl:Class ;
+                           rdfs:subClassOf <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d5404
-<http://who.int/icf#d5404> rdfs:subClassOf <http://who.int/icf#d540> .
+<http://who.int/icf#d5404> rdf:type owl:Class ;
+                           rdfs:subClassOf <http://who.int/icf#d540> .
+
+
+###  http://who.int/icf#d630-d649
+<http://who.int/icf#d630-d649> rdf:type owl:Class .
 
 
 ###  http://who.int/icf#d7
@@ -997,9 +1006,21 @@ foaf:title rdfs:domain foaf:Person .
                           rdfs:subClassOf <http://who.int/icf#d7> .
 
 
+###  http://who.int/icf#d7600
+<http://who.int/icf#d7600> rdf:type owl:Class .
+
+
+###  http://who.int/icf#d7601
+<http://who.int/icf#d7601> rdf:type owl:Class .
+
+
 ###  http://who.int/icf#d770
 <http://who.int/icf#d770> rdf:type owl:Class ;
                           rdfs:subClassOf <http://who.int/icf#d7> .
+
+
+###  http://who.int/icf#d7701
+<http://who.int/icf#d7701> rdf:type owl:Class .
 
 
 ###  http://who.int/icf#d8
@@ -1010,6 +1031,8 @@ foaf:title rdfs:domain foaf:Person .
 
 ###  http://who.int/icf#d810-d839
 <http://who.int/icf#d810-d839> rdf:type owl:Class ;
+                               owl:disjointWith <http://who.int/icf#e115> ,
+                                                foaf:Person ;
                                <http://schema.org/description> "\"The process of receiving or giving systematic instruction, especially at a school or university (oxforddictionaries.com)\"" .
 
 
@@ -1033,12 +1056,21 @@ foaf:title rdfs:domain foaf:Person .
 <http://who.int/icf#d920> rdf:type owl:Class .
 
 
+###  http://who.int/icf#d9201
+<http://who.int/icf#d9201> rdf:type owl:Class .
+
+
 ###  http://who.int/icf#d930
 <http://who.int/icf#d930> rdf:type owl:Class .
 
 
+###  http://who.int/icf#d9300
+<http://who.int/icf#d9300> rdf:type owl:Class .
+
+
 ###  http://who.int/icf#e115
 <http://who.int/icf#e115> rdf:type owl:Class ;
+                          owl:disjointWith foaf:Person ;
                           <http://schema.org/description> "\"An umbrella term that includes assistive, adaptive, and rehabilitative devices for people with disabilities and also includes the process used in selecting, locating, and using them (Wikipedia.com)\"" ;
                           rdfs:seeAlso "https://en.wikipedia.org/wiki/Assistive_technology"^^xsd:anyURI .
 
@@ -1077,36 +1109,18 @@ foaf:title rdfs:domain foaf:Person .
 <http://who.int/icf#e1451> rdf:type owl:Class .
 
 
-###  http://www.w3.org/2000/10/swap/pim/contact#Person
-<http://www.w3.org/2000/10/swap/pim/contact#Person> rdfs:subClassOf <http://purl.org/lis590OD/Fall17/DisabilityOnt/Unwanted_Terms> .
-
-
-###  http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing
-<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> rdfs:subClassOf <http://purl.org/lis590OD/Fall17/DisabilityOnt/Unwanted_Terms> .
-
-
-###  http://www.w3.org/2004/02/skos/core#Concept
-<http://www.w3.org/2004/02/skos/core#Concept> rdfs:subClassOf <http://purl.org/lis590OD/Fall17/DisabilityOnt/Unwanted_Terms> .
-
-
-###  http://www.w3.org/2006/time#Instant
-<http://www.w3.org/2006/time#Instant> rdfs:subClassOf <http://purl.org/lis590OD/Fall17/DisabilityOnt/Unwanted_Terms> .
-
-
-###  http://www.w3.org/2006/time#Interval
-<http://www.w3.org/2006/time#Interval> rdfs:subClassOf <http://purl.org/lis590OD/Fall17/DisabilityOnt/Unwanted_Terms> .
-
-
-###  http://xmlns.com/foaf/0.1/Agent
-foaf:Agent rdfs:subClassOf <http://purl.org/lis590OD/Fall17/DisabilityOnt/Unwanted_Terms> .
+###  http://who.int/icf#e350
+<http://who.int/icf#e350> rdf:type owl:Class .
 
 
 ###  http://xmlns.com/foaf/0.1/Organization
-foaf:Organization rdfs:label "Organization" .
+foaf:Organization rdf:type owl:Class ;
+                  rdfs:label "Organization" .
 
 
 ###  http://xmlns.com/foaf/0.1/Person
-foaf:Person rdfs:subClassOf [ rdf:type owl:Restriction ;
+foaf:Person rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
                               owl:onProperty :has_ability ;
                               owl:someValuesFrom <http://mccarthy.dia.fi.upm.es/Competence_Ontology#Competence>
                             ] ,
@@ -3726,47 +3740,59 @@ foaf:Person rdfs:subClassOf [ rdf:type owl:Restriction ;
 
 
 ###  http://who.int/icf#a1960_0b0e53f9_fed2_4335_b57c_17b6316589fc
-<http://who.int/icf#a1960_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type <http://who.int/icf#d630-d649> .
+<http://who.int/icf#a1960_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type owl:NamedIndividual ,
+                                                                         <http://who.int/icf#d630-d649> .
 
 
 ###  http://who.int/icf#a1962_0b0e53f9_fed2_4335_b57c_17b6316589fc
-<http://who.int/icf#a1962_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type <http://who.int/icf#d630-d649> .
+<http://who.int/icf#a1962_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type owl:NamedIndividual ,
+                                                                         <http://who.int/icf#d630-d649> .
 
 
 ###  http://who.int/icf#a2067_0b0e53f9_fed2_4335_b57c_17b6316589fc
-<http://who.int/icf#a2067_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type <http://who.int/icf#d630-d649> .
+<http://who.int/icf#a2067_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type owl:NamedIndividual ,
+                                                                         <http://who.int/icf#d630-d649> .
 
 
 ###  http://who.int/icf#a2069_0b0e53f9_fed2_4335_b57c_17b6316589fc
-<http://who.int/icf#a2069_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type <http://who.int/icf#d630-d649> .
+<http://who.int/icf#a2069_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type owl:NamedIndividual ,
+                                                                         <http://who.int/icf#d630-d649> .
 
 
 ###  http://who.int/icf#a2073_0b0e53f9_fed2_4335_b57c_17b6316589fc
-<http://who.int/icf#a2073_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type <http://who.int/icf#d630-d649> .
+<http://who.int/icf#a2073_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type owl:NamedIndividual ,
+                                                                         <http://who.int/icf#d630-d649> .
 
 
 ###  http://who.int/icf#a2075_0b0e53f9_fed2_4335_b57c_17b6316589fc
-<http://who.int/icf#a2075_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type <http://who.int/icf#d630-d649> .
+<http://who.int/icf#a2075_0b0e53f9_fed2_4335_b57c_17b6316589fc> rdf:type owl:NamedIndividual ,
+                                                                         <http://who.int/icf#d630-d649> .
 
 
 ###  http://who.int/icf#d5400
-<http://who.int/icf#d5400> rdf:type <http://who.int/icf#d540> .
+<http://who.int/icf#d5400> rdf:type owl:NamedIndividual ,
+                                    <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d5401
-<http://who.int/icf#d5401> rdf:type <http://who.int/icf#d540> .
+<http://who.int/icf#d5401> rdf:type owl:NamedIndividual ,
+                                    <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d5402
-<http://who.int/icf#d5402> rdf:type <http://who.int/icf#d540> .
+<http://who.int/icf#d5402> rdf:type owl:NamedIndividual ,
+                                    <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d5403
-<http://who.int/icf#d5403> rdf:type <http://who.int/icf#d540> .
+<http://who.int/icf#d5403> rdf:type owl:NamedIndividual ,
+                                    <http://who.int/icf#d540> .
 
 
 ###  http://who.int/icf#d5404
-<http://who.int/icf#d5404> rdf:type <http://who.int/icf#d540> ,
+<http://who.int/icf#d5404> rdf:type owl:NamedIndividual ,
+                                    <http://who.int/icf#d540> ,
+                                    owl:Class ,
                                     <http://who.int/icf#d5404> .
 
 
@@ -4333,9 +4359,9 @@ foaf:Person rdfs:subClassOf [ rdf:type owl:Restriction ;
                                       <http://schema.org/rangeIncludes> <http://schema.org/MedicalSpecialty> .
 
 
-<http://schema.org/remainingAttendeeCapacity> <http://schema.org/rangeIncludes> <http://schema.org/Integer> ;
-                                              rdfs:label "remainingAttendeeCapacity" ;
+<http://schema.org/remainingAttendeeCapacity> rdfs:label "remainingAttendeeCapacity" ;
                                               rdfs:comment "The number of attendee places for an event that remain unallocated." ;
+                                              <http://schema.org/rangeIncludes> <http://schema.org/Integer> ;
                                               <http://schema.org/domainIncludes> <http://schema.org/Event> .
 
 
