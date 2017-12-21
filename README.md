@@ -6,7 +6,7 @@ Recent updates:
 2. Incorporated classmates' ontologies related to employment. 
 
 These ontologies allowed me to include more ways to describe a "person," such as "student," "prisoner," and "employee." 
-Previously, my ontology was limited to "person with disability" as a "person." While pivotal to my ontology, a "person" is more than their disabilities. "student," "prisoner," and "employee." 
+Previously, my ontology was limited to "person with disability" as a "person." While pivotal to my ontology, a "person" is more than their disabilities.
  
 Additionally, these ontologies allowed me to expand upon forms of schooling or employment. In the past, I had a class "employment" which mainly conveyed "current employment." Now, I have assertions and inferences for employment-related concepts such as "self-employment," "retired," and "not employed."  
 
